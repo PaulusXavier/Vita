@@ -164,7 +164,7 @@ section.pagina::before{content:"";position:absolute;inset:0 -40px auto auto;widt
 .redes a{display:inline-flex;align-items:center;gap:8px;padding:6px 16px 6px 6px}
 .gl{width:28px;height:28px;border-radius:50%;background:var(--azul);color:var(--papel);display:inline-grid;place-items:center;font:700 13px var(--display)}
 .redes a:hover .gl{background:var(--papel);color:var(--azul)}
-.subir{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;border:1px solid var(--azul);background:var(--papel);color:var(--azul);font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+.subir{position:fixed;left:max(14px,env(safe-area-inset-left));bottom:max(14px,env(safe-area-inset-bottom));width:42px;height:42px;border-radius:50%;border:1px solid var(--azul);background:var(--papel);color:var(--azul);font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;box-shadow:0 4px 14px rgba(0,0,0,.15)}
 .subir.vis{opacity:1;pointer-events:auto}
 .progresso{position:fixed;top:0;left:0;height:3px;width:0;background:var(--sepia);z-index:20}
 .capa .sub::after{content:"";display:block;width:64px;height:2px;background:var(--sepia);margin:18px auto 0}
@@ -286,22 +286,23 @@ table.prod td.n{text-align:center;font-weight:700;color:var(--azul)}
 @media print{.tabela-wrap{overflow:visible}}
 
 /* Paulus, o mascote */
-.paulus{position:fixed;left:14px;bottom:14px;z-index:40;display:flex;align-items:flex-end;gap:6px;max-width:calc(100vw - 80px)}
+.paulus{position:fixed;right:max(10px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));z-index:40;display:flex;align-items:flex-end;gap:4px;max-width:calc(100vw - 20px);pointer-events:none}
+.paulus>*{pointer-events:auto}
 .sem-js .paulus{display:none}
-.pm{flex:none;width:84px;height:120px;padding:0;border:0;background:none;cursor:pointer;border-radius:16px;filter:drop-shadow(0 6px 8px rgba(60,50,30,.25));animation:pa-flutua 4s ease-in-out infinite}
+.pm{flex:none;width:56px;height:80px;padding:0;border:0;background:none;cursor:pointer;border-radius:14px;filter:drop-shadow(0 4px 5px rgba(60,50,30,.22));animation:pa-flutua 4s ease-in-out infinite;transition:transform .2s}
 .pm svg{width:100%;height:100%;display:block;overflow:visible}
 .pm:hover{transform:scale(1.06)}.pm:focus-visible{outline:3px solid var(--azul);outline-offset:3px}
 .pa-olho{transform-box:fill-box;transform-origin:center;animation:pa-pisca 5s infinite}
 .pa-dir{animation:pa-tchau 2.4s ease-in-out infinite}
-.pb{position:relative;width:min(290px,calc(100vw - 120px));margin-bottom:58px;padding:14px 16px 12px;background:var(--papel);color:var(--tinta);border:1.5px solid var(--azul);border-radius:16px 16px 16px 4px;box-shadow:0 8px 24px rgba(60,50,30,.22);font-size:16px;line-height:1.5;animation:pa-surge .3s ease-out}
-.pb[hidden]{display:none}
-.pb::before{content:"";position:absolute;left:-9px;bottom:10px;width:14px;height:14px;background:var(--papel);border-left:1.5px solid var(--azul);border-bottom:1.5px solid var(--azul);transform:rotate(45deg)}
-.pb .quem{display:block;font:700 15px var(--display);color:var(--azul);margin-bottom:4px}
+.pb{position:relative;width:min(158px,calc(100vw - 84px));margin-bottom:30px;padding:7px 9px 6px;background:var(--papel);color:var(--tinta);border:1.5px solid var(--azul);border-radius:10px 10px 3px 10px;box-shadow:0 4px 14px rgba(60,50,30,.18);font-size:11.5px;line-height:1.35;animation:pa-surge .3s ease-out}
+.pb[hidden],.pb a[hidden]{display:none}
+.pb::before{content:"";position:absolute;right:-6px;bottom:7px;width:9px;height:9px;background:var(--papel);border-right:1.5px solid var(--azul);border-top:1.5px solid var(--azul);transform:rotate(45deg)}
+.pb .quem{display:block;font:700 10.5px var(--display);color:var(--azul);margin-bottom:1px}
 .pb p{margin:0}
-.pb .pa-bt{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.pb button,.pb a{font:600 14px var(--serif);min-height:36px;padding:5px 12px;border:1px solid var(--azul);border-radius:999px;background:transparent;color:var(--azul);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.pb .pa-bt{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+.pb button,.pb a{font:600 11px var(--serif);min-height:28px;padding:2px 8px;border:1px solid var(--azul);border-radius:999px;background:transparent;color:var(--azul);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
 .pb button:hover,.pb a:hover{background:var(--azul);color:var(--papel)}
-.pb .pa-x{position:absolute;top:4px;right:6px;min-height:32px;width:32px;padding:0;justify-content:center;border:0;font-size:20px}
+.pb .pa-x{position:absolute;top:0;right:0;min-height:28px;width:28px;padding:0;justify-content:center;border:0;font-size:16px}
 .pa-boca{transform-box:fill-box;transform-origin:50% 0}
 .pm.fala .pa-boca{animation:pa-fala .42s ease-in-out 7}
 @keyframes pa-fala{50%{transform:scaleY(.55)}}
@@ -310,12 +311,12 @@ table.prod td.n{text-align:center;font-weight:700;color:var(--azul)}
 .pm.fala .pa-cab{animation:pa-acena-cab .6s ease-in-out 4}
 @keyframes pa-respira{50%{transform:scaleY(1.015)}}
 @keyframes pa-acena-cab{30%{transform:rotate(2.4deg) translateY(-1px)}70%{transform:rotate(-1.8deg)}}
-@keyframes pa-flutua{50%{transform:translateY(-5px)}}
+@keyframes pa-flutua{50%{transform:translateY(-3px)}}
 @keyframes pa-pisca{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
 @keyframes pa-tchau{0%,55%,100%{transform:rotate(0)}65%{transform:rotate(-16deg)}75%{transform:rotate(8deg)}85%{transform:rotate(-14deg)}}
 @keyframes pa-surge{from{opacity:0;transform:translateY(8px) scale(.96)}}
 @media (prefers-reduced-motion:reduce){.pm,.pa-olho,.pa-dir,.pb,.pm.fala .pa-boca,.pa-resp,.pm.fala .pa-cab{animation:none!important}}
-@media (max-width:560px){.pm{width:66px;height:94px}.pb{margin-bottom:44px;font-size:15px}}
+@media (max-width:560px){.pm{width:46px;height:66px}.pb{margin-bottom:26px;font-size:11.5px}}
 @media print{.paulus{display:none!important}}
 
 /* Caixa explicativa */
@@ -398,6 +399,27 @@ details.saiba .fonte a{color:var(--azul)}
         <p>Entre seus campos de atuação estão a educação, o trabalho, o lazer, o meio ambiente, a comunicação social, a justiça, a segurança e a assistência social. Em outro documento, o CFP descreve o psicólogo social como aquele que entende o sujeito em sua perspectiva histórica, sempre integrado ao social.</p>
         <p class="fonte">Fonte: CFP, <a href="https://site.cfp.org.br/wp-content/uploads/2006/01/resolucao2003_5.pdf" rel="noopener noreferrer" target="_blank">Resolução nº 005/2003</a> e <a href="https://site.cfp.org.br/wp-content/uploads/2008/08/atr_prof_psicologo.pdf" rel="noopener noreferrer" target="_blank">Atribuições profissionais do psicólogo no Brasil</a>.</p>
       </details>
+      <details class="saiba">
+        <summary>O que é Psicologia?</summary>
+        <p>Segundo o Conselho Federal de Psicologia (CFP), a Psicologia estuda e analisa os processos intrapessoais e as relações interpessoais, o que permite compreender o comportamento humano, individual e de grupo, nas instituições de qualquer natureza em que essas relações acontecem.</p>
+        <p>O CFP acrescenta que o psicólogo aplica conhecimento teórico e técnico para identificar e intervir nos fatores que determinam as ações das pessoas, considerando sua história pessoal, familiar e social e relacionando-as a condições políticas, históricas e culturais.</p>
+        <p>No Brasil, a profissão foi regulamentada pela Lei nº 4.119, de 27 de agosto de 1962. O CFP reconhece áreas de especialidade, como Psicologia Escolar e Educacional, Organizacional e do Trabalho, Jurídica, do Esporte, Clínica, Hospitalar, Social e Neuropsicologia. O título de especialista indica maior dedicação a uma área, mas não é condição para exercer a profissão.</p>
+        <p class="fonte">Fonte: CFP, <a href="https://site.cfp.org.br/wp-content/uploads/2008/08/atr_prof_psicologo.pdf" rel="noopener noreferrer" target="_blank">Atribuições profissionais do psicólogo no Brasil</a>; <a href="https://www.legisweb.com.br/legislacao/?id=480493" rel="noopener noreferrer" target="_blank">Resolução CFP nº 23/2022</a>; <a href="https://site.cfp.org.br/wp-content/uploads/2008/08/Resolucao_CFP_nx_013-2007.pdf" rel="noopener noreferrer" target="_blank">Resolução CFP nº 13/2007</a>.</p>
+      </details>
+      <details class="saiba">
+        <summary>O que é Psicologia Jurídica?</summary>
+        <p>De acordo com a Resolução CFP nº 23/2022, a Psicologia Jurídica é a área de atuação profissional da Psicologia no âmbito do Sistema de Justiça e dos serviços do Sistema de Segurança Pública e do Sistema de Garantia de Direitos que executam sentenças judiciais, como o Sistema Prisional e o Sistema Socioeducativo.</p>
+        <p>Entre as atribuições listadas pelo CFP estão: elaborar documentos psicológicos para o Sistema de Justiça, com sigilo, autonomia profissional e garantia dos direitos humanos; participar do planejamento e da avaliação de políticas públicas de cidadania e de prevenção da violência; acolher, orientar, avaliar e encaminhar pessoas ligadas ao fenômeno da violência; atuar nas medidas socioeducativas; contribuir, em equipes interprofissionais, com a Justiça da Infância e Juventude; intermediar conflitos cíveis sobre convivência, guarda e adoção, pelo princípio do melhor interesse da criança e do adolescente; promover mediação, conciliação e práticas restaurativas; e participar do controle social das políticas públicas, inclusive em Conselhos de Direitos.</p>
+        <p>O documento de atribuições profissionais do CFP (1992) já descrevia o psicólogo jurídico como aquele que atua no âmbito da Justiça, em instituições governamentais e não governamentais, colaborando com políticas de cidadania, direitos humanos e prevenção da violência, e contribuindo para a formulação, a revisão e a interpretação das leis.</p>
+        <p class="fonte">Fonte: CFP, <a href="https://site.crpsc.org.br/wp-content/uploads/2024/09/IV-Psicologia-Juridica.pdf" rel="noopener noreferrer" target="_blank">Resolução CFP nº 23/2022 (ementa de Psicologia Jurídica)</a> e <a href="https://site.cfp.org.br/wp-content/uploads/2008/08/atr_prof_psicologo.pdf" rel="noopener noreferrer" target="_blank">Atribuições profissionais do psicólogo no Brasil</a>.</p>
+      </details>
+      <details class="saiba">
+        <summary>Como o psicólogo atua?</summary>
+        <p>Segundo o CFP, o psicólogo atua nos âmbitos da educação, saúde, lazer, trabalho, segurança, justiça, comunidades e comunicação, com o objetivo de promover o respeito à dignidade e à integridade do ser humano.</p>
+        <p>Suas funções incluem contribuir para o conhecimento científico da Psicologia, por meio da observação e da análise dos processos de desenvolvimento, aprendizagem e personalidade; fazer psicodiagnóstico e atendimento psicológico; promover a saúde mental na prevenção e no tratamento de distúrbios psíquicos; elaborar e aplicar técnicas de exame psicológico; e participar da construção de instrumentos e técnicas psicológicas por meio da pesquisa.</p>
+        <p>O trabalho pode ser individual ou em equipes multiprofissionais, em instituições públicas ou privadas, como hospitais, centros e postos de saúde, escolas, creches, associações comunitárias, empresas, varas da criança e do adolescente, varas de família e sistema penitenciário, entre outros lugares em que a atuação seja pertinente.</p>
+        <p class="fonte">Fonte: CFP, <a href="https://site.cfp.org.br/wp-content/uploads/2008/08/atr_prof_psicologo.pdf" rel="noopener noreferrer" target="_blank">Atribuições profissionais do psicólogo no Brasil</a>.</p>
+      </details>
       <p>No presente momento, trabalha em um Centro de Referência de Assistência Social (CRAS) como parte da equipe técnica de referência, inscrito no Conselho Regional de Psicologia (CRP-20) sob o registro CRP-20/09816. Em 2023, passou a integrar o quadro funcional da Secretaria do Trabalho e Bem-estar Social (SETRABES), desenvolvendo trabalhos como psicólogo no Centro de Atendimento Social (CAS Vila Jardim).</p>
       <h3>Lattes, ORCID e Google Acadêmico</h3>
       <ul class="links">
@@ -423,6 +445,7 @@ details.saiba .fonte a{color:var(--azul)}
 
 <section class="pagina" id="producao" aria-labelledby="t-producao">
   <h2 id="t-producao">Produção acadêmica</h2>
+  <svg class="banner" viewBox="0 0 900 260" role="img" aria-label="Placa de produção acadêmica sobre livros e gráfico de citações" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="mad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a5a3c"/><stop offset="1" stop-color="#4b3626"/></linearGradient></defs><rect width="900" height="260" fill="url(#mad2)"/><rect y="200" width="900" height="60" fill="#3a2a1d" opacity=".6"/><g color="#e9dfcd" opacity=".5" transform="translate(600 60) scale(1.1)"><use href="#livros" width="240" height="180"/></g><g transform="rotate(2 300 120)"><rect x="90" y="50" width="420" height="140" rx="6" fill="#c9b58f" stroke="#2a1d12" stroke-width="3"/><g color="#3a2a1d" transform="translate(108 70)"><use href="#lattes" width="64" height="76"/></g><text x="200" y="100" font-family="Playfair Display,Georgia,serif" font-weight="700" font-size="36" fill="#3a2a1d" letter-spacing="3">PUBLICAÇÕES</text><text x="200" y="145" font-family="Playfair Display,Georgia,serif" font-size="26" fill="#3a2a1d">Google Acadêmico</text><g fill="#3a2a1d" opacity=".55"><rect x="400" y="160" width="14" height="14"/><rect x="420" y="150" width="14" height="24"/><rect x="440" y="136" width="14" height="38"/></g></g><text x="450" y="235" text-anchor="middle" font-family="Great Vibes,cursive" font-size="34" fill="#f3ece0">Produção Acadêmica</text></svg>
   <div class="texto">
     <p>Indicadores da produção registrada no meu perfil público do Google Acadêmico, com as citações recebidas por trabalhos assinados como <em>Paulo Luã Oliveira Xavier</em> (também indexado como “PLO Xavier” e “Pluão Xavier”).</p>
     <p class="acoes"><a class="btn" href="https://scholar.google.com/citations?user=zmIFmdAAAAAJ&hl=pt-BR" rel="noopener noreferrer" target="_blank">Abrir perfil no Google Acadêmico</a></p>
@@ -471,6 +494,13 @@ details.saiba .fonte a{color:var(--azul)}
       <p>Segundo o Conselho Federal de Psicologia (CFP), a Psicologia Social é uma especialidade reconhecida desde 2003. Ela parte da compreensão da dimensão subjetiva dos fenômenos sociais e coletivos, sob diferentes enfoques teóricos e metodológicos, para problematizar a realidade e propor ações no âmbito social.</p>
       <p>Entre seus campos de atuação estão a educação, o trabalho, o lazer, o meio ambiente, a comunicação social, a justiça, a segurança e a assistência social. Em outro documento, o CFP descreve o psicólogo social como aquele que entende o sujeito em sua perspectiva histórica, sempre integrado ao social.</p>
       <p class="fonte">Fonte: CFP, <a href="https://site.cfp.org.br/wp-content/uploads/2006/01/resolucao2003_5.pdf" rel="noopener noreferrer" target="_blank">Resolução nº 005/2003</a> e <a href="https://site.cfp.org.br/wp-content/uploads/2008/08/atr_prof_psicologo.pdf" rel="noopener noreferrer" target="_blank">Atribuições profissionais do psicólogo no Brasil</a>.</p>
+    </details>
+    <details class="saiba">
+      <summary>O que é Psicologia Jurídica?</summary>
+      <p>De acordo com a Resolução CFP nº 23/2022, a Psicologia Jurídica é a área de atuação profissional da Psicologia no âmbito do Sistema de Justiça e dos serviços do Sistema de Segurança Pública e do Sistema de Garantia de Direitos que executam sentenças judiciais, como o Sistema Prisional e o Sistema Socioeducativo.</p>
+      <p>Entre as atribuições listadas pelo CFP estão: elaborar documentos psicológicos para o Sistema de Justiça, com sigilo, autonomia profissional e garantia dos direitos humanos; participar do planejamento e da avaliação de políticas públicas de cidadania e de prevenção da violência; acolher, orientar, avaliar e encaminhar pessoas ligadas ao fenômeno da violência; atuar nas medidas socioeducativas; contribuir, em equipes interprofissionais, com a Justiça da Infância e Juventude; intermediar conflitos cíveis sobre convivência, guarda e adoção, pelo princípio do melhor interesse da criança e do adolescente; promover mediação, conciliação e práticas restaurativas; e participar do controle social das políticas públicas, inclusive em Conselhos de Direitos.</p>
+      <p>O documento de atribuições profissionais do CFP (1992) já descrevia o psicólogo jurídico como aquele que atua no âmbito da Justiça, em instituições governamentais e não governamentais, colaborando com políticas de cidadania, direitos humanos e prevenção da violência, e contribuindo para a formulação, a revisão e a interpretação das leis.</p>
+      <p class="fonte">Fonte: CFP, <a href="https://site.crpsc.org.br/wp-content/uploads/2024/09/IV-Psicologia-Juridica.pdf" rel="noopener noreferrer" target="_blank">Resolução CFP nº 23/2022 (ementa de Psicologia Jurídica)</a> e <a href="https://site.cfp.org.br/wp-content/uploads/2008/08/atr_prof_psicologo.pdf" rel="noopener noreferrer" target="_blank">Atribuições profissionais do psicólogo no Brasil</a>.</p>
     </details>
   </div>
   <ul class="foco">
