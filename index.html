@@ -263,39 +263,7 @@ button.btn{font:600 1em var(--display);cursor:pointer}
 html{scroll-padding-top:80px}
 .foto{background:var(--papel2)}
 
-/* Produção / Google Acadêmico */
-.est{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin:26px 0 8px}
-.est div{background:var(--vidro,rgba(255,255,255,.55));border:1px solid var(--linha);border-top:3px solid var(--azul);padding:16px 18px;text-align:center}
-.est div:nth-child(2){border-top-color:var(--sepia)}.est div:nth-child(3){border-top-color:var(--ardosia)}
-.est b{display:block;font:700 40px var(--display);color:var(--azul);line-height:1.1}
-.est span{font-size:15px;color:#5a5346}
 .refs{margin-top:32px;font-size:15px;color:#5a5346}.refs h3{font-size:1.1em}.refs ul{list-style:none;padding:0;margin:0}.refs li{margin:0 0 10px;overflow-wrap:anywhere}
-.est-nota{font-size:14px;color:#5a5346;margin:6px 0 0}
-.tabela-wrap{overflow-x:auto;margin-top:30px}
-table.prod{border-collapse:collapse;width:100%;min-width:520px;font-size:16px}
-table.prod th,table.prod td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--linha);vertical-align:top}
-table.prod th{font:600 14px var(--serif);text-transform:uppercase;letter-spacing:.06em;color:var(--azul)}
-table.prod td.n{text-align:center;font-weight:700;color:var(--azul)}
-table.prod tbody tr:nth-child(even){background:rgba(122,147,168,.08)}
-table.prod tbody tr:hover{background:rgba(184,154,110,.14)}
-table.prod a{text-underline-offset:3px;text-decoration-thickness:1px}
-table.cita td:first-child{white-space:nowrap;width:1%;font:600 14px var(--serif);letter-spacing:.03em;color:var(--azul)}
-@media print{.tabela-wrap{overflow:visible}}
-/* Gráficos de barras (Produção) */
-.graf{margin:30px 0 8px;padding:18px 20px 14px;background:var(--vidro,rgba(255,255,255,.55));border:1px solid var(--linha);border-left:3px solid var(--azul)}
-.graf figcaption{font:600 14px var(--serif);text-transform:uppercase;letter-spacing:.06em;color:var(--azul);margin:0 0 12px}
-.graf ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.graf li{display:grid;grid-template-columns:minmax(96px,28%) 1fr 2.2em;align-items:center;gap:12px;font-size:15px}
-.graf .rot{overflow-wrap:anywhere;line-height:1.3}
-.graf .trilho{height:16px;background:rgba(122,147,168,.16);border-radius:2px;overflow:hidden}
-.graf .barra{display:block;height:100%;width:0;background:var(--azul);border-radius:2px;transition:width .9s cubic-bezier(.2,.7,.2,1)}
-.graf li:nth-child(2) .barra{background:var(--sepia)}.graf li:nth-child(3) .barra{background:var(--ardosia)}.graf li:nth-child(4) .barra{background:var(--azul);opacity:.6}
-.graf .val{font-weight:700;color:var(--azul);text-align:right}
-.graf .nota{margin:12px 0 0;font-size:13px;color:#5a5346}
-.graf.ok .barra,.sem-js .graf .barra{width:var(--w)}
-@media (max-width:520px){.graf li{grid-template-columns:1fr 2.2em;gap:4px 10px}.graf .rot{grid-column:1/-1}}
-@media (prefers-reduced-motion:reduce){.graf .barra{transition:none}}
-@media print{.graf .barra{width:var(--w);transition:none}}
 
 
 /* Paulus, o mascote */
@@ -343,7 +311,7 @@ details.saiba p{margin:0 0 12px;font-size:17px;line-height:1.6}
 details.saiba .fonte{font-size:14px;color:#5a5346}
 details.saiba .fonte a{color:var(--azul)}
 .sr{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-@media(prefers-color-scheme:dark){.est span,.est-nota,.refs,details.saiba .fonte{color:#b9b2a2}}
+@media(prefers-color-scheme:dark){.refs,details.saiba .fonte{color:#b9b2a2}}
 @media(max-width:760px){.ilus{max-width:260px;margin:0 auto}}
 @media(max-width:560px){
   .topo .wrap{padding-top:6px;padding-bottom:6px;gap:0;flex-direction:column}
@@ -410,8 +378,8 @@ nav a:hover{color:var(--azul)}
 .btn:active{transform:translateY(0)}
 .retrato img{transition:transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .7s}
 .retrato:hover img{transform:scale(1.02);box-shadow:0 14px 36px rgba(60,50,30,.3)}
-.linha-tempo li,.est div,.local{transition:transform .3s ease,box-shadow .3s ease}
-.linha-tempo li:hover,.est div:hover{transform:translateY(-4px);box-shadow:0 10px 22px rgba(60,50,30,.16)}
+.linha-tempo li,.local{transition:transform .3s ease,box-shadow .3s ease}
+.linha-tempo li:hover{transform:translateY(-4px);box-shadow:0 10px 22px rgba(60,50,30,.16)}
 .local:hover{transform:translateX(6px)}
 .foto{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .foto:hover{transform:scale(1.015) rotate(-.4deg)}
@@ -426,31 +394,10 @@ h3.sub::after{content:"";flex:1;border-top:1px solid var(--linha)}
 .texto a,.refs a,td a{text-underline-offset:3px;text-decoration-thickness:1px}
 .btn{border-radius:999px;box-shadow:0 4px 12px rgba(61,84,104,.22)}
 .btn:hover{transform:translateY(-1px)}
-.est div{border-radius:4px;box-shadow:var(--sombra);transition:transform .25s}
-.est div:hover{transform:translateY(-3px)}
-.est b{font-size:44px}
-.tabela-wrap{border:1px solid var(--linha);border-radius:4px;box-shadow:var(--sombra);background:var(--vidro)}
-table.prod th{background:var(--papel2);border-bottom:2px solid var(--sepia)}
-table.prod th:first-child,table.prod td:first-child{padding-left:16px}
-table.prod tbody tr:last-child td{border-bottom:0}
-td.tipo{white-space:nowrap}
-td.tipo span,td.tipo abbr{display:inline-block;font:600 11.5px/1 var(--serif);letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:999px;color:var(--papel);background:var(--azul);text-decoration:none;cursor:default}
-td.t-capitulo span{background:var(--sepia);color:#1d1f24}
-td.t-tcc abbr{background:var(--ardosia);color:#1d1f24}
-td.t-dissertacao span{background:transparent;color:var(--azul);box-shadow:inset 0 0 0 1.5px var(--azul)}
 @media(max-width:760px){
   header.topo nav{display:flex;width:100%;overflow-x:auto;gap:2px;scrollbar-width:none;padding-bottom:2px}
   header.topo nav::-webkit-scrollbar{display:none}
   header.topo nav a{flex:none;margin:0}
-  .est b{font-size:36px}
-}
-@media(max-width:600px){
-  table.cita{min-width:0}
-  table.cita thead{display:none}
-  table.cita tr,table.cita td{display:block;width:auto}
-  table.cita tr{padding:14px 16px;border-bottom:1px solid var(--linha)}
-  table.cita td{border:0;padding:2px 0}
-  table.cita td:first-child{padding-bottom:6px}
 }
 
 /* ===== Rodada 5: animações ===== */
@@ -478,8 +425,6 @@ section.pagina.ativa h2::before{animation:pop .5s .5s cubic-bezier(.3,1.6,.5,1) 
 .card:hover svg,.local:hover svg{transform:rotate(-7deg) scale(1.12)}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease-out var(--d,0s),transform .7s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
 .rv.vis{opacity:1;transform:none}
-table.prod tbody tr{transition:background .2s,box-shadow .2s}
-table.prod tbody tr:hover{box-shadow:inset 3px 0 0 var(--sepia)}
 @media(prefers-reduced-motion:reduce){
   .deco,.chips li,.linha-tempo li:last-child::before,section.pagina.ativa h2::after,section.pagina.ativa h2::before{animation:none!important}
   .rv{opacity:1!important;transform:none!important}
@@ -615,76 +560,15 @@ section.pagina h3{scroll-margin-top:132px}
   </div>
 
   <h3 class="sub" id="t-pubs">Artigos, capítulos e trabalhos acadêmicos</h3>
-  <p>Textos completos disponíveis no perfil do Academia.edu.</p>
-  <div class="tabela-wrap">
-    <table class="prod cita">
-      <caption class="sr">Artigos, capítulos de livro, trabalho de conclusão de curso e dissertação de Paulo Xavier</caption>
-      <thead><tr><th scope="col">Tipo</th><th scope="col">Trabalho</th></tr></thead>
-      <tbody>
-        <tr><td class="tipo t-artigo"><span>Artigo</span></td><td><a href="https://www.academia.edu/attachments/133686870/download_file?s=profile" rel="noopener noreferrer" target="_blank">Construção e Validação de uma Ferramenta Lúdica: trabalhando a prevenção ao uso e/ou abuso de substâncias psicoativas (SPA) entre adolescentes</a></td></tr>
-        <tr><td class="tipo t-artigo"><span>Artigo</span></td><td><a href="https://www.academia.edu/attachments/83054220/download_file?s=profile" rel="noopener noreferrer" target="_blank">Psicologia escolar e necessidades especiais: visão dos professores das escolas de Boa Vista, Roraima</a> <small>Psicologia Argumento, 2015</small></td></tr>
-        <tr><td class="tipo t-capitulo"><span>Capítulo</span></td><td><a href="https://www.academia.edu/attachments/67739100/download_file?s=profile" rel="noopener noreferrer" target="_blank">Os imigrantes refugiados indígenas Warao em Roraima</a></td></tr>
-        <tr><td class="tipo t-capitulo"><span>Capítulo</span></td><td><a href="https://www.academia.edu/49362237/O_Povo_Warao_e_os_Direitos_Fundamentais" rel="noopener noreferrer" target="_blank">O Povo Warao e os Direitos Fundamentais</a></td></tr>
-        <tr><td class="tipo t-tcc"><abbr title="Trabalho de conclusão de curso">TCC</abbr></td><td><a href="https://www.academia.edu/49483137/A_F%C3%89_COMO_SACRONEG%C3%93CIO_um_estudo_sobre_a_rela%C3%A7%C3%A3o_entre_o_discurso_institucional_da_Igreja_Universal_do_Reino_de_Deus_e_a_viol%C3%AAncia_na_contemporaneidade" rel="noopener noreferrer" target="_blank">A fé como sacronegócio: um estudo sobre a relação entre o discurso institucional da Igreja Universal do Reino de Deus e a violência na contemporaneidade</a> · <a href="https://www.academia.edu/attachments/67824421/download_file?s=profile" rel="noopener noreferrer" target="_blank">PDF</a></td></tr>
-        <tr><td class="tipo t-dissertacao"><span>Dissertação</span></td><td><a href="https://www.academia.edu/44202985/Migrantes_Ind%C3%ADgenas_os_Warao_na_cidade_de_Boa_Vista_Roraima_e_o_debate_sobre_os_Direitos_Humanos" rel="noopener noreferrer" target="_blank">Migrantes indígenas: os Warao na cidade de Boa Vista-Roraima e o debate sobre os Direitos Humanos</a> · <a href="https://www.academia.edu/attachments/64567005/download_file?s=profile" rel="noopener noreferrer" target="_blank">PDF</a></td></tr>
-      </tbody>
-    </table>
+  <div class="texto prosa">
+    <p>A produção em Psicologia compreende dois artigos e um trabalho de conclusão de curso. O primeiro artigo, <a href="https://doi.org/10.13140/RG.2.2.22258.88001" rel="noopener noreferrer" target="_blank"><em>Construção e validação de uma ferramenta lúdica: trabalhando a prevenção ao uso e/ou abuso de substâncias psicoativas (SPA) entre adolescentes</em></a> (DOI: 10.13140/RG.2.2.22258.88001), trata da elaboração e da validação de um instrumento lúdico de prevenção dirigido ao público adolescente. O segundo, <a href="https://doi.org/10.7213/psicol.argum.33.083.AO06" rel="noopener noreferrer" target="_blank"><em>Psicologia escolar e necessidades especiais: visão dos professores das escolas de Boa Vista, Roraima</em></a> (DOI: 10.7213/psicol.argum.33.083.AO06), foi publicado na revista <em>Psicologia Argumento</em> (v. 33, n. 83, 2015), em coautoria com Loureto, Moreno, Silva e Santos, e examina a percepção docente acerca da inclusão escolar. O trabalho de conclusão de curso, <a href="https://doi.org/10.13140/RG.2.2.12674.20167" rel="noopener noreferrer" target="_blank"><em>A fé como sacronegócio: um estudo sobre a relação entre o discurso institucional da Igreja Universal do Reino de Deus e a violência na contemporaneidade</em></a> (DOI: 10.13140/RG.2.2.12674.20167), analisa a relação entre o discurso institucional religioso e a violência. Os textos completos estão disponíveis no perfil do Academia.edu: <a href="https://www.academia.edu/attachments/133686870/download_file?s=profile" rel="noopener noreferrer" target="_blank">ferramenta lúdica</a>, <a href="https://www.academia.edu/attachments/83054220/download_file?s=profile" rel="noopener noreferrer" target="_blank">psicologia escolar</a> e <a href="https://www.academia.edu/attachments/67824421/download_file?s=profile" rel="noopener noreferrer" target="_blank">trabalho de conclusão de curso</a>.</p>
+    <p>A produção em Antropologia Social tem como núcleo a dissertação de mestrado <a href="https://doi.org/10.13140/RG.2.2.16779.92960" rel="noopener noreferrer" target="_blank"><em>Migrantes indígenas: os Warao na cidade de Boa Vista-Roraima e o debate sobre os Direitos Humanos</em></a> (DOI: 10.13140/RG.2.2.16779.92960), desenvolvida no âmbito da Universidade Federal de Roraima (UFRR), que inaugura a linha de pesquisa sobre mobilidade indígena e direitos (<a href="https://www.academia.edu/attachments/64567005/download_file?s=profile" rel="noopener noreferrer" target="_blank">texto completo</a>). Dessa linha derivam dois capítulos de livro. O primeiro, <a href="https://doi.org/10.13140/RG.2.2.32976.64009" rel="noopener noreferrer" target="_blank"><em>O Povo Warao e os Direitos Fundamentais: uma construção teórica das principais legislações nacionais e internacionais no que concerne os direitos humanos</em></a> (DOI: 10.13140/RG.2.2.32976.64009), sistematiza o conjunto normativo aplicável a essa população (<a href="https://www.academia.edu/49362237/O_Povo_Warao_e_os_Direitos_Fundamentais" rel="noopener noreferrer" target="_blank">texto completo</a>). O segundo, <a href="https://doi.org/10.13140/RG.2.2.21232.58887" rel="noopener noreferrer" target="_blank"><em>Os imigrantes refugiados indígenas Warao em Roraima: os abrigos como políticas públicas de acolhimento</em></a> (DOI: 10.13140/RG.2.2.21232.58887), discute os abrigos como política pública de acolhimento (<a href="https://www.academia.edu/attachments/67739100/download_file?s=profile" rel="noopener noreferrer" target="_blank">texto completo</a>).</p>
   </div>
 
-  <figure class="graf"><figcaption>Produção por tipo</figcaption><ul><li><span class="rot">Artigos</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:100%"></span></span><span class="val">2</span></li><li><span class="rot">Capítulos de livro</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:100%"></span></span><span class="val">2</span></li><li><span class="rot">Trabalho de conclusão de curso</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:50%"></span></span><span class="val">1</span></li><li><span class="rot">Dissertação</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:50%"></span></span><span class="val">1</span></li></ul></figure>
-
-  <h3 class="sub" id="t-scholar">Indicadores do Google Acadêmico</h3>
-  <p>Os indicadores vêm do perfil público no Google Acadêmico, onde o nome também aparece como “PLO Xavier” e “Pluão Xavier”.</p>
-  <div class="est" role="list" aria-label="Estatísticas de citação">
-    <div role="listitem"><b>5</b><span>citações no total</span></div>
-    <div role="listitem"><b>6</b><span>trabalhos no perfil</span></div>
-    <div role="listitem"><b>2</b><span>trabalhos citados</span></div>
-    <div role="listitem"><b>2</b><span>índice h</span></div>
-    <div role="listitem"><b>0</b><span>índice i10</span></div>
-  </div>
-  <p class="est-nota">Índices h e i10 calculados a partir das citações por trabalho. A contagem atualizada está sempre no Google Acadêmico. Entradas duplicadas do perfil foram reunidas.</p>
-
-  <div class="tabela-wrap">
-    <table class="prod">
-      <caption class="sr">Trabalhos listados no Google Acadêmico</caption>
-      <thead><tr><th scope="col">Trabalho</th><th scope="col">Ano</th><th scope="col">Citado por</th></tr></thead>
-      <tbody>
-        <tr><td>Psicologia escolar e necessidades especiais: visão dos professores das escolas de Boa Vista, Roraima. <small>Psicologia Argumento 33 (83), com Loureto, Moreno, Silva e Santos</small></td><td>2015</td><td class="n">3</td></tr>
-        <tr><td>Migrantes indígenas: os Warao na cidade de Boa Vista-Roraima e o debate sobre os direitos humanos. <small>Antropologia Social, UFRR</small></td><td>2019</td><td class="n">2</td></tr>
-        <tr><td>III Seminário Internacional Sociedade e Fronteiras e V Encontro Norte-Nordeste de Psicologia Social: produção de conhecimento e formação interdisciplinar <small>com C. E. Ramos</small></td><td>—</td><td class="n">0</td></tr>
-        <tr><td>Capítulo VI</td><td>—</td><td class="n">0</td></tr>
-        <tr><td>Faculdade Única: migrante, direitos humanos (trabalho de especialização)</td><td>—</td><td class="n">0</td></tr>
-        <tr><td>Curso de Psicologia (trabalho acadêmico)</td><td>—</td><td class="n">0</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <figure class="graf"><figcaption>Citações por trabalho (Google Acadêmico)</figcaption><ul><li><span class="rot">Psicologia escolar e necessidades especiais</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:100%"></span></span><span class="val">3</span></li><li><span class="rot">Migrantes indígenas: os Warao em Boa Vista</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:67%"></span></span><span class="val">2</span></li></ul><p class="nota">Total de 5 citações; índice h = 2.</p></figure>
-
-  <h3 class="sub" id="t-citam">Trabalhos que citam a dissertação</h3>
-  <p>A dissertação <em>Migrantes indígenas: os Warao na cidade de Boa Vista/Roraima e o debate sobre os direitos humanos</em> é referência em outros trabalhos sobre o povo Warao. Esta contagem é feita à parte, a partir do levantamento de citações da própria dissertação, e por isso não entra nos números do Google Acadêmico.</p>
-  <div class="est" role="list" aria-label="Trabalhos que citam a dissertação">
-    <div role="listitem"><b>7</b><span>trabalhos citam a dissertação</span></div>
-    <div role="listitem"><b>4</b><span>artigos</span></div>
-    <div role="listitem"><b>2</b><span>dissertações</span></div>
-    <div role="listitem"><b>1</b><span>trabalho de conclusão de curso</span></div>
-  </div>
-  <figure class="graf"><figcaption>Trabalhos que citam a dissertação, por tipo</figcaption><ul><li><span class="rot">Artigos</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:100%"></span></span><span class="val">4</span></li><li><span class="rot">Dissertações</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:50%"></span></span><span class="val">2</span></li><li><span class="rot">Trabalho de conclusão de curso</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:25%"></span></span><span class="val">1</span></li></ul></figure>
-
-  <div class="tabela-wrap">
-    <table class="prod cita">
-      <caption class="sr">Trabalhos que citam a dissertação de Paulo Xavier</caption>
-      <thead><tr><th scope="col">Tipo</th><th scope="col">Trabalho</th></tr></thead>
-      <tbody>
-        <tr><td class="tipo t-artigo"><span>Artigo</span></td><td><a href="https://dialnet.unirioja.es/servlet/articulo?codigo=9111381" rel="noopener noreferrer" target="_blank">Refugiados indígenas venezuelanos em Roraima: o caso do Povo Warao</a></td></tr>
-        <tr><td class="tipo t-artigo"><span>Artigo</span></td><td><a href="https://geplat.com/papers/index.php/home/article/view/142" rel="noopener noreferrer" target="_blank">Comunidades “Warao a Jonoko” e “Warao Yakera Ine”: resiliência e luta dos indígenas imigrantes refugiados venezuelanos contra a violação de direitos no estado de Roraima</a> <small>GEPLAT</small></td></tr>
-        <tr><td class="tipo t-artigo"><span>Artigo</span></td><td><a href="https://www.researchgate.net/publication/389613924_A_QUESTAO_WARAO_NO_CONTEXTO_DIASPORICO_BRASILEIRO" rel="noopener noreferrer" target="_blank">A questão Warao no contexto diaspórico brasileiro</a></td></tr>
-        <tr><td class="tipo t-artigo"><span>Artigo</span></td><td><a href="https://www.even3.com.br/anais/visidha/845366-o-refugio-da-etnia-warao--o-direito-internacional-e-as-leis-brasileiras-no-processo-de-acolhimento-humanitario-(2/" rel="noopener noreferrer" target="_blank">O refúgio da etnia Warao: o direito internacional e as leis brasileiras no processo de acolhimento humanitário (2019 a 2023)</a> <small>R. O. L. da Silva e V. M. Oliveira · Anais do VI Simpósio Internacional em Direitos Humanos Aplicados</small></td></tr>
-        <tr><td class="tipo t-dissertacao"><span>Dissertação</span></td><td><a href="https://repositorio.unesp.br/items/5307de1e-a621-446f-b17d-8dd597552bc1" rel="noopener noreferrer" target="_blank">Transversalizar as políticas públicas: os desafios de acesso aos Centros de Referência em Assistência Social (CRAS) para as mulheres venezuelanas vivendo em ocupações urbanas em Boa Vista</a> <small>Clara de Oliveira Cunha · Unesp, 2023</small></td></tr>
-        <tr><td class="tipo t-dissertacao"><span>Dissertação</span></td><td><a href="https://bdtd.ibict.br/vufind/Record/UFRR-6_244cc97e55b5f5ed32a0a2785145b3ac" rel="noopener noreferrer" target="_blank">Diáspora dos índios Warao da Venezuela</a> <small>José Raimundo Torres dos Santos · PPGANTS/UFRR, 2019</small></td></tr>
-        <tr><td class="tipo t-tcc"><abbr title="Trabalho de conclusão de curso">TCC</abbr></td><td>A atuação da Defensoria Pública da União em favor dos migrantes Warao no Brasil <small>Millena de Almeida Corrêa · UnB, 2023</small></td></tr>
-      </tbody>
-    </table>
+  <h3 class="sub" id="t-scholar">Indicadores e citações</h3>
+  <div class="texto prosa">
+    <p>O perfil público no Google Acadêmico, no qual o nome também figura como “PLO Xavier” e “Pluão Xavier”, registra seis trabalhos, dos quais dois são citados, o que totaliza cinco citações, com índice h igual a 2 e índice i10 igual a 0. O artigo sobre psicologia escolar e necessidades especiais reúne três citações, e a dissertação sobre os Warao, duas. Os índices foram calculados a partir das citações por trabalho; a contagem atualizada permanece disponível no Google Acadêmico, e as entradas duplicadas do perfil foram reunidas.</p>
+    <p>A dissertação é, ademais, referência em sete outros trabalhos sobre o povo Warao, levantados à parte e, por essa razão, não computados nos indicadores do Google Acadêmico: quatro artigos, duas dissertações e um trabalho de conclusão de curso. Entre os artigos, constam <a href="https://dialnet.unirioja.es/servlet/articulo?codigo=9111381" rel="noopener noreferrer" target="_blank"><em>Refugiados indígenas venezuelanos em Roraima: o caso do Povo Warao</em></a>; <a href="https://geplat.com/papers/index.php/home/article/view/142" rel="noopener noreferrer" target="_blank"><em>Comunidades “Warao a Jonoko” e “Warao Yakera Ine”: resiliência e luta dos indígenas imigrantes refugiados venezuelanos contra a violação de direitos no estado de Roraima</em></a> (GEPLAT); <a href="https://www.researchgate.net/publication/389613924_A_QUESTAO_WARAO_NO_CONTEXTO_DIASPORICO_BRASILEIRO" rel="noopener noreferrer" target="_blank"><em>A questão Warao no contexto diaspórico brasileiro</em></a>; e <a href="https://www.even3.com.br/anais/visidha/845366-o-refugio-da-etnia-warao--o-direito-internacional-e-as-leis-brasileiras-no-processo-de-acolhimento-humanitario-(2/" rel="noopener noreferrer" target="_blank"><em>O refúgio da etnia Warao: o direito internacional e as leis brasileiras no processo de acolhimento humanitário (2019 a 2023)</em></a>, de R. O. L. da Silva e V. M. Oliveira, nos Anais do VI Simpósio Internacional em Direitos Humanos Aplicados. As dissertações são <a href="https://repositorio.unesp.br/items/5307de1e-a621-446f-b17d-8dd597552bc1" rel="noopener noreferrer" target="_blank"><em>Transversalizar as políticas públicas: os desafios de acesso aos Centros de Referência em Assistência Social (CRAS) para as mulheres venezuelanas vivendo em ocupações urbanas em Boa Vista</em></a>, de Clara de Oliveira Cunha (Unesp, 2023), e <a href="https://bdtd.ibict.br/vufind/Record/UFRR-6_244cc97e55b5f5ed32a0a2785145b3ac" rel="noopener noreferrer" target="_blank"><em>Diáspora dos índios Warao da Venezuela</em></a>, de José Raimundo Torres dos Santos (PPGANTS/UFRR, 2019). O trabalho de conclusão de curso, de Millena de Almeida Corrêa (UnB, 2023), intitula-se <em>A atuação da Defensoria Pública da União em favor dos migrantes Warao no Brasil</em>.</p>
   </div>
 </section>
 
@@ -900,8 +784,8 @@ section.pagina h3{scroll-margin-top:132px}
       {t:'Aqui também dá para abrir o Currículo Lattes ou salvar a página em PDF.',go:'#producao',l:'Ver produção'}
     ],
     producao:[
-      {t:'Aqui estão os artigos, os capítulos, o TCC e a dissertação, com o texto completo para ler ou baixar.'},
-      {t:'Mais abaixo ficam os números do Google Acadêmico e os trabalhos que citam a dissertação.',go:'#interesses',l:'Ver interesses'}
+      {t:'Aqui estão os artigos, os capítulos, o TCC e a dissertação, com o DOI e o texto completo para ler ou baixar.'},
+      {t:'Mais abaixo ficam os indicadores do Google Acadêmico e os trabalhos que citam a dissertação.',go:'#interesses',l:'Ver interesses'}
     ],
     interesses:[
       {t:'Uma das frentes de estudo do Paulo é a chegada do povo Warao a Boa Vista. Vale a leitura!'},
