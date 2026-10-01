@@ -281,6 +281,22 @@ table.prod tbody tr:hover{background:rgba(184,154,110,.14)}
 table.prod a{text-underline-offset:3px;text-decoration-thickness:1px}
 table.cita td:first-child{white-space:nowrap;width:1%;font:600 14px var(--serif);letter-spacing:.03em;color:var(--azul)}
 @media print{.tabela-wrap{overflow:visible}}
+/* Gráficos de barras (Produção) */
+.graf{margin:30px 0 8px;padding:18px 20px 14px;background:var(--vidro,rgba(255,255,255,.55));border:1px solid var(--linha);border-left:3px solid var(--azul)}
+.graf figcaption{font:600 14px var(--serif);text-transform:uppercase;letter-spacing:.06em;color:var(--azul);margin:0 0 12px}
+.graf ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.graf li{display:grid;grid-template-columns:minmax(96px,28%) 1fr 2.2em;align-items:center;gap:12px;font-size:15px}
+.graf .rot{overflow-wrap:anywhere;line-height:1.3}
+.graf .trilho{height:16px;background:rgba(122,147,168,.16);border-radius:2px;overflow:hidden}
+.graf .barra{display:block;height:100%;width:0;background:var(--azul);border-radius:2px;transition:width .9s cubic-bezier(.2,.7,.2,1)}
+.graf li:nth-child(2) .barra{background:var(--sepia)}.graf li:nth-child(3) .barra{background:var(--ardosia)}.graf li:nth-child(4) .barra{background:var(--azul);opacity:.6}
+.graf .val{font-weight:700;color:var(--azul);text-align:right}
+.graf .nota{margin:12px 0 0;font-size:13px;color:#5a5346}
+.graf.ok .barra,.sem-js .graf .barra{width:var(--w)}
+@media (max-width:520px){.graf li{grid-template-columns:1fr 2.2em;gap:4px 10px}.graf .rot{grid-column:1/-1}}
+@media (prefers-reduced-motion:reduce){.graf .barra{transition:none}}
+@media print{.graf .barra{width:var(--w);transition:none}}
+
 
 /* Paulus, o mascote */
 .paulus{position:fixed;right:max(10px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));z-index:40;display:flex;align-items:flex-end;gap:4px;max-width:calc(100vw - 20px);pointer-events:none}
@@ -401,6 +417,91 @@ nav a:hover{color:var(--azul)}
 .foto:hover{transform:scale(1.015) rotate(-.4deg)}
 
 @media print{.rv,.rv.vis{opacity:1!important;animation:none!important;transform:none!important}.paulus,.subir,.progresso{display:none!important}.prosa p{text-align:left}}
+
+/* ===== Rodada 4: design ===== */
+.capa .chips{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:22px auto 0;padding:0;max-width:680px}
+.chips li{font:600 12.5px var(--serif);letter-spacing:.08em;text-transform:uppercase;color:var(--azul);padding:5px 14px;border:1px solid var(--sepia);border-radius:999px;background:var(--vidro)}
+h3.sub{display:flex;align-items:center;gap:14px}
+h3.sub::after{content:"";flex:1;border-top:1px solid var(--linha)}
+.texto a,.refs a,td a{text-underline-offset:3px;text-decoration-thickness:1px}
+.btn{border-radius:999px;box-shadow:0 4px 12px rgba(61,84,104,.22)}
+.btn:hover{transform:translateY(-1px)}
+.est div{border-radius:4px;box-shadow:var(--sombra);transition:transform .25s}
+.est div:hover{transform:translateY(-3px)}
+.est b{font-size:44px}
+.tabela-wrap{border:1px solid var(--linha);border-radius:4px;box-shadow:var(--sombra);background:var(--vidro)}
+table.prod th{background:var(--papel2);border-bottom:2px solid var(--sepia)}
+table.prod th:first-child,table.prod td:first-child{padding-left:16px}
+table.prod tbody tr:last-child td{border-bottom:0}
+td.tipo{white-space:nowrap}
+td.tipo span,td.tipo abbr{display:inline-block;font:600 11.5px/1 var(--serif);letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:999px;color:var(--papel);background:var(--azul);text-decoration:none;cursor:default}
+td.t-capitulo span{background:var(--sepia);color:#1d1f24}
+td.t-tcc abbr{background:var(--ardosia);color:#1d1f24}
+td.t-dissertacao span{background:transparent;color:var(--azul);box-shadow:inset 0 0 0 1.5px var(--azul)}
+@media(max-width:760px){
+  header.topo nav{display:flex;width:100%;overflow-x:auto;gap:2px;scrollbar-width:none;padding-bottom:2px}
+  header.topo nav::-webkit-scrollbar{display:none}
+  header.topo nav a{flex:none;margin:0}
+  .est b{font-size:36px}
+}
+@media(max-width:600px){
+  table.cita{min-width:0}
+  table.cita thead{display:none}
+  table.cita tr,table.cita td{display:block;width:auto}
+  table.cita tr{padding:14px 16px;border-bottom:1px solid var(--linha)}
+  table.cita td{border:0;padding:2px 0}
+  table.cita td:first-child{padding-bottom:6px}
+}
+
+/* ===== Rodada 5: animações ===== */
+@keyframes flutua{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(2.5deg)}}
+.deco.e{animation:flutua 7s ease-in-out infinite}
+.deco.d{animation:flutua 8.5s -2s ease-in-out infinite}
+.deco.r{animation:flutua 9s -4s ease-in-out infinite}
+.deco.l{animation:flutua 6.5s -1s ease-in-out infinite}
+@keyframes brota{from{opacity:0;transform:translateY(14px) scale(.9)}to{opacity:1;transform:none}}
+.chips li{animation:brota .6s both;transition:background .2s,color .2s,transform .2s}
+.chips li:nth-child(1){animation-delay:.9s}.chips li:nth-child(2){animation-delay:1s}.chips li:nth-child(3){animation-delay:1.1s}.chips li:nth-child(4){animation-delay:1.2s}.chips li:nth-child(5){animation-delay:1.3s}
+.chips li:hover{background:var(--azul);color:var(--papel);transform:translateY(-3px)}
+.marca::before{transition:transform .8s cubic-bezier(.3,1.4,.5,1)}
+.marca:hover::before{transform:rotate(360deg)}
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.4) 50%,transparent 70%);transform:translateX(-120%);pointer-events:none}
+.btn:hover::after{transform:translateX(120%);transition:transform .7s}
+@keyframes risca{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes pop{from{transform:scale(0) rotate(0)}to{transform:scale(1) rotate(45deg)}}
+section.pagina.ativa h2::after{animation:risca .9s .2s ease-out both}
+section.pagina.ativa h2::before{animation:pop .5s .5s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes pulso{0%{box-shadow:0 0 0 0 rgba(61,84,104,.5)}70%,100%{box-shadow:0 0 0 12px rgba(61,84,104,0)}}
+.linha-tempo li:last-child::before{animation:pulso 2.4s infinite}
+.card svg,.local svg{transition:transform .35s cubic-bezier(.3,1.5,.5,1)}
+.card:hover svg,.local:hover svg{transform:rotate(-7deg) scale(1.12)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease-out var(--d,0s),transform .7s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
+.rv.vis{opacity:1;transform:none}
+table.prod tbody tr{transition:background .2s,box-shadow .2s}
+table.prod tbody tr:hover{box-shadow:inset 3px 0 0 var(--sepia)}
+@media(prefers-reduced-motion:reduce){
+  .deco,.chips li,.linha-tempo li:last-child::before,section.pagina.ativa h2::after,section.pagina.ativa h2::before{animation:none!important}
+  .rv{opacity:1!important;transform:none!important}
+}
+@media print{.rv{opacity:1!important;transform:none!important}.deco{animation:none}}
+
+/* ===== Rodada 6: navegação ===== */
+section.pagina h3{scroll-margin-top:132px}
+.pagina-nav{position:sticky;top:var(--hh,64px);z-index:4;display:flex;gap:4px;overflow-x:auto;margin:-6px 0 28px;padding:6px;background:var(--papel);border:1px solid var(--linha);border-radius:999px;box-shadow:var(--sombra);scrollbar-width:none}
+.pagina-nav::-webkit-scrollbar{display:none}
+.pagina-nav::before{content:"Nesta página";flex:none;align-self:center;padding:0 10px 0 12px;font:600 11.5px var(--serif);letter-spacing:.1em;text-transform:uppercase;color:var(--sepia)}
+.pagina-nav a{flex:none;padding:6px 14px;border-radius:999px;font:600 14px var(--serif);text-decoration:none;color:var(--azul);transition:background .2s,color .2s}
+.pagina-nav a:hover{background:rgba(122,147,168,.2)}
+.pagina-nav a.at{background:var(--azul);color:var(--papel)}
+.passo{display:flex;gap:14px;margin-top:56px;padding-top:26px;border-top:1px solid var(--linha)}
+.passo a{flex:1 1 0;min-width:0;max-width:calc(50% - 7px);display:flex;flex-direction:column;gap:2px;padding:14px 20px;text-decoration:none;border:1px solid var(--linha);border-radius:6px;background:var(--vidro);transition:transform .25s,box-shadow .25s,border-color .25s}
+.passo a:hover{transform:translateY(-3px);box-shadow:var(--sombra);border-color:var(--sepia)}
+.passo small{font:600 11.5px var(--serif);letter-spacing:.1em;text-transform:uppercase;color:var(--tinta);opacity:.65}
+.passo b{font:600 21px var(--display);color:var(--azul)}
+.passo .ant{text-align:left}.passo .prox{text-align:right;margin-left:auto}
+@media(max-width:600px){.pagina-nav::before{display:none}.passo b{font-size:18px}.passo a{padding:12px 14px}}
+@media print{.pagina-nav,.passo{display:none}}
 </style>
 </head>
 <body class="sem-js">
@@ -435,6 +536,7 @@ nav a:hover{color:var(--azul)}
   <h1>Paulo Xavier</h1>
   <div class="reg">CRP-20/09816</div>
   <p class="sub">Psicólogo no SUAS · Mestre em Antropologia Social</p>
+  <ul class="chips" aria-label="Áreas de atuação"><li>Psicologia Social</li><li>SUAS</li><li>Antropologia Social</li><li>Migração e refúgio</li><li>Substâncias psicoativas</li></ul>
   <blockquote>“Só a experiência própria é capaz de tornar sábio o ser humano.”<cite>Sigmund Freud</cite></blockquote>
 </div>
 
@@ -447,7 +549,7 @@ nav a:hover{color:var(--azul)}
     <div class="texto prosa">
       <p>Paulo Xavier é psicólogo (CRP-20/09816), mestre em Antropologia Social pela Universidade Federal de Roraima e especialista em Psicologia Jurídica e em Psicologia Social. Sua trajetória nasce do cruzamento de três campos — a Psicologia, a Antropologia e o Direito — e se concretiza no trabalho cotidiano na rede pública de assistência social de Boa Vista, Roraima, onde a teoria é posta à prova diante de demandas reais de famílias, de comunidades e de pessoas em deslocamento.</p>
       <p>Atua no Sistema Único de Assistência Social (SUAS), no nível da Proteção Social Básica, que a Política Nacional de Assistência Social organiza em torno da prevenção de situações de risco, do desenvolvimento de potencialidades e do fortalecimento dos vínculos familiares e comunitários (PNAS, 2004; <a href="https://site.cfp.org.br/publicacoes/referencias-tecnicas-crepop/" rel="noopener noreferrer" target="_blank">CFP, 2021</a>). Integra, pela Secretaria Municipal de Assistência e Desenvolvimento Social (SEMADS), a equipe técnica de referência do CRAS Cristiana Vicente Nunes e, desde 2023, compõe o quadro funcional da Secretaria do Trabalho e Bem-estar Social (SETRABES) como psicólogo no Centro de Atendimento Social (CAS Vila Jardim), serviço de convivência e fortalecimento de vínculos da rede estadual.</p>
-      <p>A pesquisa acompanha a prática e a prática alimenta a pesquisa. Atualmente, o interesse principal de Paulo Xavier é o trabalho do psicólogo na Proteção Social Básica e em todos os serviços que a compõem, à luz da Psicologia Social e em diálogo com as ciências sociais. A esse eixo somam-se a migração venezuelana e o refúgio, as relações interétnicas e a presença do povo Warao em Boa Vista e a prevenção ao uso de substâncias psicoativas, campo em que pesquisou e trabalhou por muito tempo com gamificação e com a validação psicométrica de jogos e bancos de perguntas, sempre com a pergunta de como serviços públicos, ciência e direitos humanos podem se encontrar de modo ético, técnico e respeitoso.</p>
+      <p>A pesquisa acompanha a prática e a prática alimenta a pesquisa. O interesse principal de Paulo Xavier é o trabalho do psicólogo na Proteção Social Básica, à luz da Psicologia Social e em diálogo com as ciências sociais. A ele somam-se a migração venezuelana e o povo Warao, e a prevenção ao uso de substâncias psicoativas (veja Áreas de interesse), sempre com a pergunta de como serviços públicos, ciência e direitos humanos podem se encontrar de modo ético, técnico e respeitoso.</p>
       <p>Este site reúne o currículo completo, a produção acadêmica, as áreas de interesse e os contatos profissionais, em leitura contínua, destinada a quem deseja conhecer o percurso profissional e acadêmico.</p>
       <p class="acoes"><a class="btn" href="#curriculo">Ver currículo</a><a class="btn sec" href="#interesses">Áreas de interesse</a><a class="btn sec" href="#contato">Contato</a></p>
     </div>
@@ -459,8 +561,7 @@ nav a:hover{color:var(--azul)}
   <div class="dois">
     <figure class="ilus"><svg viewBox="0 0 200 240" role="img" aria-label="Ilustração de currículo acadêmico"><use href="#lattes"/></svg><figcaption>Formação, pesquisa e prática</figcaption></figure>
     <div class="texto prosa">
-      <p>Em 2015, graduou-se em Psicologia pela Universidade Federal de Roraima (UFRR), instituição na qual, em 2020, obteve também o título de mestre em Antropologia Social, pelo Programa de Pós-Graduação em Antropologia Social (PPGANTS/UFRR). Motivado pelo interesse na interface entre a Psicologia e o Direito, cursou e concluiu, em 2018, a especialização em Psicologia Jurídica na Faculdade Única; em 2022, somou a essa formação a especialização em Psicologia Social, pela União Brasileira de Faculdades (UniBF). A sequência une a escuta social da Psicologia, o olhar etnográfico e crítico da Antropologia e o repertório normativo do campo sociojurídico.</p>
-      <p>No âmbito profissional, atua em um Centro de Referência de Assistência Social (CRAS), como parte da equipe técnica de referência, inscrito no Conselho Regional de Psicologia (CRP-20) sob o registro CRP-20/09816. Em 2019, ingressou na Secretaria Municipal de Assistência e Desenvolvimento Social (SEMADS) como psicólogo de CRAS, o que marcou o início de sua atuação profissional na rede pública do município, e, em 2023, passou a integrar o quadro funcional da SETRABES, desenvolvendo seu trabalho como psicólogo no CAS Vila Jardim.</p>
+      <p>A formação une a escuta social da Psicologia, o olhar etnográfico e crítico da Antropologia e o repertório normativo do campo sociojurídico: graduação em Psicologia e mestrado em Antropologia Social, ambos na Universidade Federal de Roraima (UFRR), e especializações em Psicologia Jurídica, motivada pela interface entre Psicologia e Direito, e em Psicologia Social. Na vida profissional, é psicólogo de CRAS na rede municipal desde 2019 e, desde 2023, também integra a SETRABES, no CAS Vila Jardim. A cronologia completa está abaixo.</p>
       <p class="acoes"><a class="btn" href="http://lattes.cnpq.br/1651070118731757" rel="noopener noreferrer" target="_blank">Currículo Lattes</a><button type="button" class="btn sec" onclick="window.print()">Salvar em PDF</button></p>
     </div>
   </div>
@@ -509,19 +610,39 @@ nav a:hover{color:var(--azul)}
   <h2 id="t-producao">Produção acadêmica</h2>
   <svg class="banner" viewBox="0 0 900 260" role="img" aria-label="Placa de produção acadêmica sobre livros e gráfico de citações" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="mad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a5a3c"/><stop offset="1" stop-color="#4b3626"/></linearGradient></defs><rect width="900" height="260" fill="url(#mad2)"/><rect y="200" width="900" height="60" fill="#3a2a1d" opacity=".6"/><g color="#e9dfcd" opacity=".5" transform="translate(600 60) scale(1.1)"><use href="#livros" width="240" height="180"/></g><g transform="rotate(2 300 120)"><rect x="90" y="50" width="420" height="140" rx="6" fill="#c9b58f" stroke="#2a1d12" stroke-width="3"/><g color="#3a2a1d" transform="translate(108 70)"><use href="#lattes" width="64" height="76"/></g><text x="200" y="100" font-family="Playfair Display,Georgia,serif" font-weight="700" font-size="36" fill="#3a2a1d" letter-spacing="3">PUBLICAÇÕES</text><text x="200" y="145" font-family="Playfair Display,Georgia,serif" font-size="26" fill="#3a2a1d">Google Acadêmico</text><g fill="#3a2a1d" opacity=".55"><rect x="400" y="160" width="14" height="14"/><rect x="420" y="150" width="14" height="24"/><rect x="440" y="136" width="14" height="38"/></g></g><text x="450" y="235" text-anchor="middle" font-family="Great Vibes,cursive" font-size="34" fill="#f3ece0">Produção Acadêmica</text></svg>
   <div class="texto prosa">
-    <p>A produção acadêmica de Paulo Xavier, assinada como <em>Paulo Luã Oliveira Xavier</em>, reflete as duas vertentes de sua formação. Em 2015, o artigo “Psicologia escolar e necessidades especiais: visão dos professores das escolas de Boa Vista, Roraima”, publicado na revista <em>Psicologia Argumento</em> em coautoria, examinou a inclusão escolar a partir da perspectiva de docentes da capital. Em 2019, “Migrantes indígenas: os Warao na cidade de Boa Vista-Roraima e o debate sobre os direitos humanos”, vinculado à Antropologia Social da UFRR, abriu a linha de pesquisa sobre mobilidade indígena e direitos que permanece central em seus interesses.</p>
-    <p>Completam o perfil registros ligados ao III Seminário Internacional Sociedade e Fronteiras e ao V Encontro Norte-Nordeste de Psicologia Social, além de um trabalho de especialização sobre migrantes e direitos humanos e de trabalhos acadêmicos do curso de Psicologia. Os indicadores abaixo vêm do perfil público no Google Acadêmico, onde o nome também aparece indexado como “PLO Xavier” e “Pluão Xavier”.</p>
+    <p>A produção acadêmica de Paulo Xavier, assinada como <em>Paulo Luã Oliveira Xavier</em>, articula as duas vertentes de sua formação. Na Psicologia, reúne artigos sobre inclusão escolar e sobre a prevenção ao uso de substâncias psicoativas entre adolescentes, além do trabalho de conclusão de curso. Na Antropologia Social, a dissertação sobre os Warao em Boa Vista abriu a linha de pesquisa sobre mobilidade indígena e direitos, que permanece central em seus interesses e inclui dois capítulos de livro.</p>
     <p class="acoes"><a class="btn" href="https://scholar.google.com/citations?user=zmIFmdAAAAAJ&amp;hl=pt-BR" rel="noopener noreferrer" target="_blank">Abrir perfil no Google Acadêmico</a></p>
   </div>
 
+  <h3 class="sub" id="t-pubs">Artigos, capítulos e trabalhos acadêmicos</h3>
+  <p>Textos completos disponíveis no perfil do Academia.edu.</p>
+  <div class="tabela-wrap">
+    <table class="prod cita">
+      <caption class="sr">Artigos, capítulos de livro, trabalho de conclusão de curso e dissertação de Paulo Xavier</caption>
+      <thead><tr><th scope="col">Tipo</th><th scope="col">Trabalho</th></tr></thead>
+      <tbody>
+        <tr><td class="tipo t-artigo"><span>Artigo</span></td><td><a href="https://www.academia.edu/attachments/133686870/download_file?s=profile" rel="noopener noreferrer" target="_blank">Construção e Validação de uma Ferramenta Lúdica: trabalhando a prevenção ao uso e/ou abuso de substâncias psicoativas (SPA) entre adolescentes</a></td></tr>
+        <tr><td class="tipo t-artigo"><span>Artigo</span></td><td><a href="https://www.academia.edu/attachments/83054220/download_file?s=profile" rel="noopener noreferrer" target="_blank">Psicologia escolar e necessidades especiais: visão dos professores das escolas de Boa Vista, Roraima</a> <small>Psicologia Argumento, 2015</small></td></tr>
+        <tr><td class="tipo t-capitulo"><span>Capítulo</span></td><td><a href="https://www.academia.edu/attachments/67739100/download_file?s=profile" rel="noopener noreferrer" target="_blank">Os imigrantes refugiados indígenas Warao em Roraima</a></td></tr>
+        <tr><td class="tipo t-capitulo"><span>Capítulo</span></td><td><a href="https://www.academia.edu/49362237/O_Povo_Warao_e_os_Direitos_Fundamentais" rel="noopener noreferrer" target="_blank">O Povo Warao e os Direitos Fundamentais</a></td></tr>
+        <tr><td class="tipo t-tcc"><abbr title="Trabalho de conclusão de curso">TCC</abbr></td><td><a href="https://www.academia.edu/49483137/A_F%C3%89_COMO_SACRONEG%C3%93CIO_um_estudo_sobre_a_rela%C3%A7%C3%A3o_entre_o_discurso_institucional_da_Igreja_Universal_do_Reino_de_Deus_e_a_viol%C3%AAncia_na_contemporaneidade" rel="noopener noreferrer" target="_blank">A fé como sacronegócio: um estudo sobre a relação entre o discurso institucional da Igreja Universal do Reino de Deus e a violência na contemporaneidade</a> · <a href="https://www.academia.edu/attachments/67824421/download_file?s=profile" rel="noopener noreferrer" target="_blank">PDF</a></td></tr>
+        <tr><td class="tipo t-dissertacao"><span>Dissertação</span></td><td><a href="https://www.academia.edu/44202985/Migrantes_Ind%C3%ADgenas_os_Warao_na_cidade_de_Boa_Vista_Roraima_e_o_debate_sobre_os_Direitos_Humanos" rel="noopener noreferrer" target="_blank">Migrantes indígenas: os Warao na cidade de Boa Vista-Roraima e o debate sobre os Direitos Humanos</a> · <a href="https://www.academia.edu/attachments/64567005/download_file?s=profile" rel="noopener noreferrer" target="_blank">PDF</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="graf"><figcaption>Produção por tipo</figcaption><ul><li><span class="rot">Artigos</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:100%"></span></span><span class="val">2</span></li><li><span class="rot">Capítulos de livro</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:100%"></span></span><span class="val">2</span></li><li><span class="rot">Trabalho de conclusão de curso</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:50%"></span></span><span class="val">1</span></li><li><span class="rot">Dissertação</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:50%"></span></span><span class="val">1</span></li></ul></figure>
+
+  <h3 class="sub" id="t-scholar">Indicadores do Google Acadêmico</h3>
+  <p>Os indicadores vêm do perfil público no Google Acadêmico, onde o nome também aparece como “PLO Xavier” e “Pluão Xavier”.</p>
   <div class="est" role="list" aria-label="Estatísticas de citação">
     <div role="listitem"><b>5</b><span>citações no total</span></div>
-    <div role="listitem"><b>7</b><span>trabalhos no perfil</span></div>
+    <div role="listitem"><b>6</b><span>trabalhos no perfil</span></div>
     <div role="listitem"><b>2</b><span>trabalhos citados</span></div>
     <div role="listitem"><b>2</b><span>índice h</span></div>
     <div role="listitem"><b>0</b><span>índice i10</span></div>
   </div>
-  <p class="est-nota">Índices h e i10 calculados a partir das citações por trabalho. A contagem atualizada está sempre no Google Acadêmico.</p>
+  <p class="est-nota">Índices h e i10 calculados a partir das citações por trabalho. A contagem atualizada está sempre no Google Acadêmico. Entradas duplicadas do perfil foram reunidas.</p>
 
   <div class="tabela-wrap">
     <table class="prod">
@@ -531,7 +652,6 @@ nav a:hover{color:var(--azul)}
         <tr><td>Psicologia escolar e necessidades especiais: visão dos professores das escolas de Boa Vista, Roraima. <small>Psicologia Argumento 33 (83), com Loureto, Moreno, Silva e Santos</small></td><td>2015</td><td class="n">3</td></tr>
         <tr><td>Migrantes indígenas: os Warao na cidade de Boa Vista-Roraima e o debate sobre os direitos humanos. <small>Antropologia Social, UFRR</small></td><td>2019</td><td class="n">2</td></tr>
         <tr><td>III Seminário Internacional Sociedade e Fronteiras e V Encontro Norte-Nordeste de Psicologia Social: produção de conhecimento e formação interdisciplinar <small>com C. E. Ramos</small></td><td>—</td><td class="n">0</td></tr>
-        <tr><td>III Seminário Internacional Sociedade e Fronteiras e V Encontro Norte-Nordeste de Psicologia Social</td><td>—</td><td class="n">0</td></tr>
         <tr><td>Capítulo VI</td><td>—</td><td class="n">0</td></tr>
         <tr><td>Faculdade Única: migrante, direitos humanos (trabalho de especialização)</td><td>—</td><td class="n">0</td></tr>
         <tr><td>Curso de Psicologia (trabalho acadêmico)</td><td>—</td><td class="n">0</td></tr>
@@ -539,29 +659,30 @@ nav a:hover{color:var(--azul)}
     </table>
   </div>
 
+  <figure class="graf"><figcaption>Citações por trabalho (Google Acadêmico)</figcaption><ul><li><span class="rot">Psicologia escolar e necessidades especiais</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:100%"></span></span><span class="val">3</span></li><li><span class="rot">Migrantes indígenas: os Warao em Boa Vista</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:67%"></span></span><span class="val">2</span></li></ul><p class="nota">Total de 5 citações; índice h = 2.</p></figure>
+
   <h3 class="sub" id="t-citam">Trabalhos que citam a dissertação</h3>
-  <p>A dissertação <em>Migrantes indígenas: os Warao na cidade de Boa Vista/Roraima e o debate sobre os direitos humanos</em> (2020) é referência em outros trabalhos sobre o povo Warao. Esta contagem é feita à parte, a partir do levantamento de citações da própria dissertação, e por isso não entra nos números do Google Acadêmico acima.</p>
+  <p>A dissertação <em>Migrantes indígenas: os Warao na cidade de Boa Vista/Roraima e o debate sobre os direitos humanos</em> é referência em outros trabalhos sobre o povo Warao. Esta contagem é feita à parte, a partir do levantamento de citações da própria dissertação, e por isso não entra nos números do Google Acadêmico.</p>
   <div class="est" role="list" aria-label="Trabalhos que citam a dissertação">
-    <div role="listitem"><b>9</b><span>trabalhos citam a dissertação</span></div>
+    <div role="listitem"><b>7</b><span>trabalhos citam a dissertação</span></div>
     <div role="listitem"><b>4</b><span>artigos</span></div>
-    <div role="listitem"><b>2</b><span>capítulos de livro</span></div>
     <div role="listitem"><b>2</b><span>dissertações</span></div>
     <div role="listitem"><b>1</b><span>trabalho de conclusão de curso</span></div>
   </div>
+  <figure class="graf"><figcaption>Trabalhos que citam a dissertação, por tipo</figcaption><ul><li><span class="rot">Artigos</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:100%"></span></span><span class="val">4</span></li><li><span class="rot">Dissertações</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:50%"></span></span><span class="val">2</span></li><li><span class="rot">Trabalho de conclusão de curso</span><span class="trilho" aria-hidden="true"><span class="barra" style="--w:25%"></span></span><span class="val">1</span></li></ul></figure>
+
   <div class="tabela-wrap">
     <table class="prod cita">
       <caption class="sr">Trabalhos que citam a dissertação de Paulo Xavier</caption>
       <thead><tr><th scope="col">Tipo</th><th scope="col">Trabalho</th></tr></thead>
       <tbody>
-        <tr><td>Artigo</td><td><a href="https://dialnet.unirioja.es/servlet/articulo?codigo=9111381" rel="noopener noreferrer" target="_blank">Refugiados indígenas venezuelanos em Roraima: o caso do Povo Warao</a></td></tr>
-        <tr><td>Artigo</td><td><a href="https://geplat.com/papers/index.php/home/article/view/142" rel="noopener noreferrer" target="_blank">Comunidades “Warao a Jonoko” e “Warao Yakera Ine”: resiliência e luta dos indígenas imigrantes refugiados venezuelanos contra a violação de direitos no estado de Roraima</a> <small>GEPLAT</small></td></tr>
-        <tr><td>Artigo</td><td><a href="https://www.researchgate.net/publication/389613924_A_QUESTAO_WARAO_NO_CONTEXTO_DIASPORICO_BRASILEIRO" rel="noopener noreferrer" target="_blank">A questão Warao no contexto diaspórico brasileiro</a></td></tr>
-        <tr><td>Artigo</td><td><a href="https://www.even3.com.br/anais/visidha/845366-o-refugio-da-etnia-warao--o-direito-internacional-e-as-leis-brasileiras-no-processo-de-acolhimento-humanitario-(2/" rel="noopener noreferrer" target="_blank">O refúgio da etnia Warao: o direito internacional e as leis brasileiras no processo de acolhimento humanitário (2019 a 2023)</a> <small>R. O. L. da Silva e V. M. Oliveira · Anais do VI Simpósio Internacional em Direitos Humanos Aplicados</small></td></tr>
-        <tr><td>Capítulo de livro</td><td><a href="https://www.academia.edu/49362247/Os_imigrantes_refugiados_ind%C3%ADgenas_Warao_em_Roraima" rel="noopener noreferrer" target="_blank">Os imigrantes refugiados indígenas Warao em Roraima: os abrigos como políticas públicas de acolhimento</a></td></tr>
-        <tr><td>Capítulo de livro</td><td><a href="https://www.academia.edu/44629565/O_Povo_Warao_e_os_Direitos_Fundamentais_uma_constru%C3%A7%C3%A3o_te%C3%B3rica_das_principais_legisla%C3%A7%C3%B5es_nacionais_e_internacionais_no_que_concerne_os_direitos_humanos" rel="noopener noreferrer" target="_blank">O Povo Warao e os Direitos Fundamentais: uma construção teórica das principais legislações nacionais e internacionais no que concerne os direitos humanos</a></td></tr>
-        <tr><td>Dissertação</td><td><a href="https://repositorio.unesp.br/items/5307de1e-a621-446f-b17d-8dd597552bc1" rel="noopener noreferrer" target="_blank">Transversalizar as políticas públicas: os desafios de acesso aos Centros de Referência em Assistência Social (CRAS) para as mulheres venezuelanas vivendo em ocupações urbanas em Boa Vista</a> <small>Clara de Oliveira Cunha · Unesp, 2023</small></td></tr>
-        <tr><td>Dissertação</td><td><a href="https://bdtd.ibict.br/vufind/Record/UFRR-6_244cc97e55b5f5ed32a0a2785145b3ac" rel="noopener noreferrer" target="_blank">Diáspora dos índios Warao da Venezuela</a> <small>José Raimundo Torres dos Santos · PPGANTS/UFRR, 2019</small></td></tr>
-        <tr><td>Trabalho de conclusão de curso</td><td>A atuação da Defensoria Pública da União em favor dos migrantes Warao no Brasil <small>Millena de Almeida Corrêa · UnB, 2023</small></td></tr>
+        <tr><td class="tipo t-artigo"><span>Artigo</span></td><td><a href="https://dialnet.unirioja.es/servlet/articulo?codigo=9111381" rel="noopener noreferrer" target="_blank">Refugiados indígenas venezuelanos em Roraima: o caso do Povo Warao</a></td></tr>
+        <tr><td class="tipo t-artigo"><span>Artigo</span></td><td><a href="https://geplat.com/papers/index.php/home/article/view/142" rel="noopener noreferrer" target="_blank">Comunidades “Warao a Jonoko” e “Warao Yakera Ine”: resiliência e luta dos indígenas imigrantes refugiados venezuelanos contra a violação de direitos no estado de Roraima</a> <small>GEPLAT</small></td></tr>
+        <tr><td class="tipo t-artigo"><span>Artigo</span></td><td><a href="https://www.researchgate.net/publication/389613924_A_QUESTAO_WARAO_NO_CONTEXTO_DIASPORICO_BRASILEIRO" rel="noopener noreferrer" target="_blank">A questão Warao no contexto diaspórico brasileiro</a></td></tr>
+        <tr><td class="tipo t-artigo"><span>Artigo</span></td><td><a href="https://www.even3.com.br/anais/visidha/845366-o-refugio-da-etnia-warao--o-direito-internacional-e-as-leis-brasileiras-no-processo-de-acolhimento-humanitario-(2/" rel="noopener noreferrer" target="_blank">O refúgio da etnia Warao: o direito internacional e as leis brasileiras no processo de acolhimento humanitário (2019 a 2023)</a> <small>R. O. L. da Silva e V. M. Oliveira · Anais do VI Simpósio Internacional em Direitos Humanos Aplicados</small></td></tr>
+        <tr><td class="tipo t-dissertacao"><span>Dissertação</span></td><td><a href="https://repositorio.unesp.br/items/5307de1e-a621-446f-b17d-8dd597552bc1" rel="noopener noreferrer" target="_blank">Transversalizar as políticas públicas: os desafios de acesso aos Centros de Referência em Assistência Social (CRAS) para as mulheres venezuelanas vivendo em ocupações urbanas em Boa Vista</a> <small>Clara de Oliveira Cunha · Unesp, 2023</small></td></tr>
+        <tr><td class="tipo t-dissertacao"><span>Dissertação</span></td><td><a href="https://bdtd.ibict.br/vufind/Record/UFRR-6_244cc97e55b5f5ed32a0a2785145b3ac" rel="noopener noreferrer" target="_blank">Diáspora dos índios Warao da Venezuela</a> <small>José Raimundo Torres dos Santos · PPGANTS/UFRR, 2019</small></td></tr>
+        <tr><td class="tipo t-tcc"><abbr title="Trabalho de conclusão de curso">TCC</abbr></td><td>A atuação da Defensoria Pública da União em favor dos migrantes Warao no Brasil <small>Millena de Almeida Corrêa · UnB, 2023</small></td></tr>
       </tbody>
     </table>
   </div>
@@ -571,9 +692,9 @@ nav a:hover{color:var(--azul)}
   <h2 id="t-interesses">Áreas de interesse</h2>
   <svg class="banner" viewBox="0 0 900 260" role="img" aria-label="Placa de psicólogo sobre livros" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="mad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a5a3c"/><stop offset="1" stop-color="#4b3626"/></linearGradient></defs><rect width="900" height="260" fill="url(#mad)"/><rect y="200" width="900" height="60" fill="#3a2a1d" opacity=".6"/><g color="#e9dfcd" opacity=".5" transform="translate(600 60) scale(1.1)"><use href="#livros" width="240" height="180"/></g><g transform="rotate(-2 300 120)"><rect x="90" y="50" width="420" height="140" rx="6" fill="#c9b58f" stroke="#2a1d12" stroke-width="3"/><g color="#3a2a1d" transform="translate(110 70)"><use href="#selo" width="70" height="70"/></g><text x="200" y="100" font-family="Playfair Display,Georgia,serif" font-weight="700" font-size="40" fill="#3a2a1d" letter-spacing="3">PSICÓLOGO</text><text x="200" y="145" font-family="Playfair Display,Georgia,serif" font-size="30" fill="#3a2a1d">CRP-20/09816</text></g><text x="450" y="235" text-anchor="middle" font-family="Great Vibes,cursive" font-size="34" fill="#f3ece0">Áreas de Interesse</text></svg>
   <div class="texto prosa">
-    <p>Os interesses de pesquisa de Paulo Xavier abrangem quatro campos que se cruzam: a Psicologia Social e, dentro dela, o trabalho do psicólogo na Proteção Social Básica; a migração e o refúgio; a Antropologia Social e as relações interétnicas; e a prevenção ao uso de substâncias psicoativas, com trabalho em gamificação e na validação de jogos. Hoje, o eixo principal é o primeiro. Dedica-se sobretudo a compreender o que faz, o que pode fazer e como deve fazer o psicólogo quando seu trabalho acontece no território, em diálogo com as ciências sociais e sob a lógica dos direitos, a partir da prática na equipe de referência do CRAS Cristiana Vicente Nunes e no quadro funcional da SETRABES, no CAS Vila Jardim.</p>
+    <p>Os interesses de pesquisa de Paulo Xavier abrangem quatro campos que se cruzam: a Psicologia Social e, dentro dela, o trabalho do psicólogo na Proteção Social Básica; a migração e o refúgio; a Antropologia Social e as relações interétnicas; e a prevenção ao uso de substâncias psicoativas, com trabalho em gamificação e na validação de jogos. Hoje, o eixo principal é o primeiro: o que faz, o que pode fazer e como deve fazer o psicólogo quando seu trabalho acontece no território, em diálogo com as ciências sociais e sob a lógica dos direitos.</p>
     <h3 class="sub">Psicologia Social e o trabalho do psicólogo na Proteção Social Básica</h3>
-    <p>Constitui o foco atual e o mais desenvolvido. A Psicologia Social parte da ideia de que o sofrimento, os vínculos e as escolhas das pessoas só se compreendem em suas condições históricas, econômicas e culturais, e a Proteção Social Básica é o lugar onde essa ideia vira rotina de trabalho. Atua-se nos três serviços que, segundo a Tipificação Nacional de Serviços Socioassistenciais, compõem esse nível de proteção, e é sobre o papel do psicólogo em cada um deles que se debruça (<a href="https://site.cfp.org.br/publicacoes/referencias-tecnicas-crepop/" rel="noopener noreferrer" target="_blank">CFP, 2021</a>).</p>
+    <p>A Psicologia Social parte da ideia de que o sofrimento, os vínculos e as escolhas das pessoas só se compreendem em suas condições históricas, econômicas e culturais, e a Proteção Social Básica é o lugar onde essa ideia vira rotina de trabalho. Atua-se nos três serviços que, segundo a Tipificação Nacional de Serviços Socioassistenciais, compõem esse nível de proteção, e é sobre o papel do psicólogo em cada um deles que se debruça (<a href="https://site.cfp.org.br/publicacoes/referencias-tecnicas-crepop/" rel="noopener noreferrer" target="_blank">CFP, 2021</a>).</p>
     <p>O primeiro é o Serviço de Proteção e Atendimento Integral à Família (PAIF), trabalho social de caráter continuado com famílias do território, que envolve acolhida, acompanhamento familiar, oficinas e articulação com a rede. O segundo é o Serviço de Proteção Social Básica no Domicílio para pessoas com deficiência e idosas, que leva o atendimento à casa do usuário e exige atenção às barreiras de acesso, ao papel dos cuidadores e ao risco de isolamento. O terceiro é o Serviço de Convivência e Fortalecimento de Vínculos (SCFV), realizado em grupos organizados por ciclos de vida, que busca ampliar trocas culturais, prevenir situações de risco e fortalecer a convivência comunitária. Ao redor desses serviços estão ainda a busca ativa, o acesso a benefícios e ao Cadastro Único e a articulação com a saúde, a educação e a proteção especial.</p>
     <p>Sobre esse conjunto, o interesse se organiza em perguntas concretas. Como exercer a escuta qualificada sem transformar o CRAS em consultório? Como a atuação do psicólogo se distingue, e ao mesmo tempo se complementa, do trabalho do assistente social dentro da equipe de referência? Que lugar ocupam a prevenção, a matricialidade sociofamiliar e a participação dos usuários? Como lidar com o sigilo, com a produção de documentos psicológicos e com os limites entre a Proteção Social Básica e a Especial? O propósito é produzir conhecimento que aprimore a técnica, a ética e a metodologia do trabalho e que, ao voltar ao serviço, torne a garantia de direitos mais efetiva.</p>
     <h3 class="sub">Migração, refúgio e impactos institucionais</h3>
@@ -625,7 +746,7 @@ nav a:hover{color:var(--azul)}
       <li><a href="https://www.facebook.com/paulo.xavier.9849" rel="noopener noreferrer" target="_blank"><span class="gl" aria-hidden="true">f</span>Facebook</a></li>
       <li><a href="https://twitter.com/PauloXa04561389" rel="noopener noreferrer" target="_blank"><span class="gl" aria-hidden="true">X</span>X (Twitter)</a></li>
     </ul>
-    <p>Paulo Xavier · Psicólogo · CRP-20/09816 · Boa Vista, 2026 · Atualizado em setembro de 2026</p>
+    <p>Paulo Xavier · Psicólogo · CRP-20/09816 · Boa Vista, 2026 · Atualizado em outubro de 2026</p>
   </div>
 </footer>
 <aside class="paulus" id="paulus" aria-label="Paulus, mascote do site">
@@ -771,20 +892,23 @@ nav a:hover{color:var(--azul)}
   if(!box||!btn)return;
   var falas={
     inicio:[
-      {t:'Paulus, mascote do site, apresenta as seções disponíveis. Deseja percorrê-las?',go:'#curriculo',l:'Ver currículo'}
+      {t:'Oi! Eu sou o Paulus, o mascote do site. Fique à vontade para explorar!'},
+      {t:'Aqui você encontra o currículo do Paulo, a produção acadêmica, as áreas de interesse e o contato. Que tal começar pelo currículo?',go:'#curriculo',l:'Ver currículo'}
     ],
     curriculo:[
-      {t:'As caixas expansíveis contêm as definições do CFP e a indicação do CREPOP, referência para a atuação do psicólogo nas políticas públicas.'},
-      {t:'Nesta seção, é possível acessar o Currículo Lattes e salvar a página em PDF.',go:'#producao',l:'Ver produção'}
+      {t:'Dica: clique nas caixinhas para abrir as definições do CFP e a indicação do CREPOP. Ajuda bastante quem é de outra área.'},
+      {t:'Aqui também dá para abrir o Currículo Lattes ou salvar a página em PDF.',go:'#producao',l:'Ver produção'}
     ],
     producao:[
-      {t:'Os indicadores provêm do Google Acadêmico. A tabela identifica os trabalhos citados e, em separado, os que citam a dissertação.',go:'#interesses',l:'Ver interesses'}
+      {t:'Aqui estão os artigos, os capítulos, o TCC e a dissertação, com o texto completo para ler ou baixar.'},
+      {t:'Mais abaixo ficam os números do Google Acadêmico e os trabalhos que citam a dissertação.',go:'#interesses',l:'Ver interesses'}
     ],
     interesses:[
-      {t:'Uma das frentes de estudo é a migração do povo Warao para Boa Vista.',go:'#contato',l:'Ver contato'}
+      {t:'Uma das frentes de estudo do Paulo é a chegada do povo Warao a Boa Vista. Vale a leitura!'},
+      {t:'No fim da página há as referências, se quiser se aprofundar.',go:'#contato',l:'Ver contato'}
     ],
     contato:[
-      {t:'Constam nesta seção os locais de atuação, com o link de localização, e os perfis acadêmicos. As redes sociais encontram-se no rodapé.',go:'#inicio',l:'Voltar ao início'}
+      {t:'Aqui estão os locais de atuação, com link para o mapa, e os perfis acadêmicos. As redes sociais ficam no rodapé.',go:'#inicio',l:'Voltar ao início'}
     ]
   };
   var pag='inicio',i=0,fechadoPeloUsuario=false,vistas={};
@@ -842,6 +966,110 @@ document.querySelectorAll(q).forEach(function(el){
 el.classList.add('rv');
 if(el.matches('li,.est div,.local')){var i=[].indexOf.call(el.parentElement.children,el);el.style.setProperty('--d',Math.min(i,6)*90+'ms')}
 io.observe(el)});
+})();
+</script>
+<script>
+(function(){
+  var g=document.querySelectorAll('.graf');
+  if(!g.length)return;
+  if(!('IntersectionObserver' in window)){g.forEach(function(e){e.classList.add('ok')});return}
+  var o=new IntersectionObserver(function(l){l.forEach(function(x){if(x.isIntersecting){x.target.classList.add('ok');o.unobserve(x.target)}})},{threshold:.25});
+  g.forEach(function(e){o.observe(e)});
+})();
+</script>
+<script>
+/* Revelação ao rolar e contagem dos números */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+  function contar(el){
+    var t=el.textContent.trim(),n=parseInt(t,10);
+    if(String(n)!==t)return;
+    var ini=null;el.textContent='0';
+    requestAnimationFrame(function f(ts){
+      if(ini===null)ini=ts;
+      var p=Math.min((ts-ini)/900,1);
+      el.textContent=Math.round(n*(1-Math.pow(1-p,3)));
+      if(p<1)requestAnimationFrame(f);
+    });
+  }
+  var o=new IntersectionObserver(function(l){
+    l.forEach(function(x){
+      if(!x.isIntersecting)return;
+      var e=x.target;o.unobserve(e);
+      e.classList.add('vis');
+      var b=e.querySelector&&e.parentNode.classList.contains('est')?e.querySelector('b'):null;
+      if(b)contar(b);
+      setTimeout(function(){e.classList.remove('rv','vis')},1300);
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.est div,.tabela-wrap,.prod tbody tr,.ilus,.retrato').forEach(function(e){
+    var i=Array.prototype.indexOf.call(e.parentNode.children,e);
+    e.style.setProperty('--d',Math.min(i*0.07,0.5)+'s');
+    e.classList.add('rv');o.observe(e);
+  });
+})();
+</script>
+<script>
+/* Navegação: índice da página, anterior/próxima, rolagem do menu */
+(function(){
+  var topo=document.querySelector('header.topo'),menu=topo&&topo.querySelector('nav');
+  var links=[].slice.call(menu?menu.querySelectorAll('a'):[]);
+  var secs=[].slice.call(document.querySelectorAll('section.pagina'));
+  function hh(){document.documentElement.style.setProperty('--hh',(topo?topo.offsetHeight:64)+'px')}
+  hh();window.addEventListener('resize',hh);
+
+  function slug(t){return 's-'+t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40)}
+  var indices=[];
+  secs.forEach(function(sec,n){
+    /* índice "Nesta página" */
+    var hs=[].slice.call(sec.querySelectorAll('h3')).filter(function(h){return h.textContent.trim()});
+    if(hs.length>=3){
+      var nav=document.createElement('nav');nav.className='pagina-nav';nav.setAttribute('aria-label','Nesta página');
+      var as=hs.map(function(h){
+        if(!h.id)h.id=slug(h.textContent);
+        var a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent.replace(/:.*$/,'').replace(/ e o trabalho do psicólogo.*$/,'');
+        a.addEventListener('click',function(e){e.preventDefault();h.scrollIntoView({behavior:'smooth',block:'start'});h.setAttribute('tabindex','-1');h.focus({preventScroll:true})});
+        nav.appendChild(a);return a;
+      });
+      var h2=sec.querySelector('h2');h2.parentNode.insertBefore(nav,h2.nextSibling);
+      indices.push({sec:sec,hs:hs,as:as,nav:nav});
+    }
+    /* anterior / próxima */
+    var ant=links[n-1],prox=links[n+1];
+    if(ant||prox){
+      var d=document.createElement('nav');d.className='passo';d.setAttribute('aria-label','Navegar entre seções');
+      if(ant)d.insertAdjacentHTML('beforeend','<a class="ant" rel="prev" href="'+ant.getAttribute('href')+'"><small>← Anterior</small><b>'+ant.textContent+'</b></a>');
+      if(prox)d.insertAdjacentHTML('beforeend','<a class="prox" rel="next" href="'+prox.getAttribute('href')+'"><small>Próxima →</small><b>'+prox.textContent+'</b></a>');
+      sec.appendChild(d);
+    }
+  });
+
+  /* destaque do item ativo no índice */
+  var pend=false;
+  function marcar(){
+    pend=false;
+    indices.forEach(function(ix){
+      if(!ix.sec.classList.contains('ativa'))return;
+      var at=0;
+      ix.hs.forEach(function(h,i){if(h.getBoundingClientRect().top<hh.v+70)at=i});
+      ix.as.forEach(function(a,i){
+        var on=i===at&&window.scrollY>200;
+        a.classList.toggle('at',on);
+        if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');
+        if(on){var n=ix.nav;n.scrollLeft=a.offsetLeft-(n.clientWidth-a.offsetWidth)/2}
+      });
+    });
+  }
+  hh.v=64;
+  window.addEventListener('scroll',function(){hh.v=topo?topo.offsetHeight:64;if(!pend){pend=true;requestAnimationFrame(marcar)}},{passive:true});
+
+  /* menu do topo: centraliza o item ativo no celular */
+  function centrar(){
+    var a=menu&&menu.querySelector('[aria-current="page"]');
+    if(a&&menu.scrollWidth>menu.clientWidth)menu.scrollLeft=a.offsetLeft-(menu.clientWidth-a.offsetWidth)/2;
+  }
+  window.addEventListener('hashchange',function(){setTimeout(centrar,0);setTimeout(marcar,60)});
+  centrar();
 })();
 </script>
 </body>
