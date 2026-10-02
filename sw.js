@@ -4,10 +4,10 @@
  *   demais arquivos usam "stale-while-revalidate". Se este arquivo mudar, o novo SW assume
  *   sozinho e a página recarrega.
  * Ao alterar sw.js, ícones ou a lista CORE, aumente VERSION. */
-const VERSION = '2026-10-02.50';
+const VERSION = '2026-10-02.52';
 const CORE_CACHE = 'vita-core-' + VERSION;
 const RUNTIME_CACHE = 'vita-runtime';
-const CORE = ['./', 'index.html', '404.html', 'manifest.json', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png', 'curriculo-ilustracao.svg', 'foto-debate.jpg', 'foto-roda.jpg', 'foto-territorio.jpg', 'foto-comunidade.jpg'];
+const CORE = ['./', 'index.html', '404.html', 'manifest.json', 'imagens/icon-192.png', 'imagens/icon-512.png', 'imagens/apple-touch-icon.png', 'imagens/curriculo-ilustracao.svg', 'imagens/foto.jpg', 'imagens/foto-debate.jpg', 'imagens/foto-roda.jpg', 'imagens/foto-territorio.jpg', 'imagens/foto-comunidade.jpg', 'imagens/crepop/crepop-cras.jpg', 'imagens/crepop/crepop-creas.jpg', 'imagens/crepop/crepop-suas-gestao.jpg', 'imagens/crepop/crepop-pop-rua.jpg'];
 const FONT_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com'];
 
 self.addEventListener('install', (e) => {
