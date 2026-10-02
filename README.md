@@ -14,3 +14,5 @@ Psicologia em Roraima: panorama da distribuição de psicólogas(os) (do país a
 Leituras e fontes: livros, sites científicos (SciELO, BVS Saúde, PubMed), sites da profissão (APA e CFP) e mapas (Mapa Social do MDS e RAPS no NovaSAGE).
 
 Imagens: ficam todas na pasta `imagens/` (capas do CREPOP em `imagens/crepop/`, capas de livros em `imagens/livros/`).
+
+Fundamentação científica: as seções Interesses e Psicologia em Roraima citam literatura revisada (CRAS/SUAS, migração e Warao, prevenção, gamificação e psicometria); as obras constam em Referências, em ABNT. Alguns itens têm volume e páginas a completar a partir do texto original.
