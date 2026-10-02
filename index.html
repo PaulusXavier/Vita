@@ -275,11 +275,12 @@ html{scroll-padding-top:80px}
 .pm:hover{transform:scale(1.06)}.pm:focus-visible{outline:3px solid var(--azul);outline-offset:3px}
 .pa-olho{transform-box:fill-box;transform-origin:center;animation:pa-pisca 5s infinite}
 .pa-dir{animation:pa-tchau 2.4s ease-in-out infinite}
-.pb{position:relative;width:min(214px,calc(100vw - 84px));margin-bottom:30px;padding:9px 12px 8px;background:var(--papel);color:var(--tinta);border:1.5px solid var(--azul);border-radius:10px 10px 3px 10px;box-shadow:0 4px 14px rgba(60,50,30,.18);font-size:14px;line-height:1.45;animation:pa-surge .3s ease-out}
+.pb{position:relative;width:min(246px,calc(100vw - 84px));margin-bottom:30px;padding:9px 12px 8px;background:var(--papel);color:var(--tinta);border:1.5px solid var(--azul);border-radius:10px 10px 3px 10px;box-shadow:0 4px 14px rgba(60,50,30,.18);font-size:14px;line-height:1.45;animation:pa-surge .3s ease-out}
 .pb[hidden],.pb a[hidden],.pb button[hidden]{display:none}
 .pb::before{content:"";position:absolute;right:-6px;bottom:7px;width:9px;height:9px;background:var(--papel);border-right:1.5px solid var(--azul);border-top:1.5px solid var(--azul);transform:rotate(45deg)}
 .pb .quem{display:block;font:700 12px var(--display);color:var(--azul);margin-bottom:1px}
-.pb p{margin:0}
+.pb .quem small{font:400 11px var(--serif);color:#6b6257;margin-left:6px}
+.pb p{margin:0;max-height:min(34vh,230px);overflow-y:auto;padding-right:2px}
 .pb .pa-bt{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
 .pb button,.pb a{font:600 13px var(--serif);min-height:28px;padding:2px 8px;border:1px solid var(--azul);border-radius:999px;background:transparent;color:var(--azul);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
 .pb button:hover,.pb a:hover{background:var(--azul);color:var(--papel)}
@@ -364,6 +365,29 @@ details.saiba .fonte a{color:var(--azul)}
 .destaque-livros .capa-texto b{display:block;font:600 .8rem/1.25 var(--display);letter-spacing:.01em}
 .destaque-livros .capa-texto i{display:block;margin-top:8px;font:400 .62rem/1.3 var(--serif);font-style:normal;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
 @media(max-width:420px){.destaque-livros .capa-obra{flex-basis:96px;width:96px}.destaque-livros a.obra{gap:12px}}
+
+/* Funil: da literatura nacional ao psicólogo no SUAS em Roraima */
+.funil{list-style:none;margin:1.3em 0 1.7em;padding:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+.funil li{box-sizing:border-box;width:var(--w,100%);max-width:100%;margin:0;padding:12px 16px;text-align:left;background:linear-gradient(160deg,rgba(255,255,255,.7),rgba(255,255,255,.35));border:1px solid var(--linha);border-left:4px solid var(--sepia);border-radius:6px}
+.funil li:last-child{border-left-color:var(--azul)}
+.funil b{display:block;font:600 1.02rem/1.3 var(--display);color:var(--azul)}
+.funil span{display:block;margin-top:3px;font-size:.9rem;line-height:1.5;color:#5a5346}
+.perguntas{margin:.4em 0 1.2em;padding-left:1.3em}.perguntas li{margin:0 0 .45em}
+.busca{list-style:none;margin:.6em 0 1.1em;padding:0}.busca li{margin:0 0 8px}
+.busca code{display:block;padding:8px 12px;font:.82rem/1.5 ui-monospace,Menlo,Consolas,monospace;color:var(--tinta);background:var(--papel2);border:1px solid var(--linha);border-radius:4px;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+@media(prefers-color-scheme:dark){.funil li{background:rgba(255,255,255,.05)}.funil span{color:#b9b2a2}}
+@media print{.funil li{break-inside:avoid}}
+
+/* Sites científicos recomendados */
+.destaque-sites ul{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:20px 18px}
+.destaque-sites .placa{position:relative;display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:16/8;padding:10px 12px;color:#f3ece0;background:linear-gradient(165deg,#4a6379,#2b3d4d 70%);border-radius:2px 6px 6px 2px;overflow:hidden;box-shadow:0 1px 2px rgba(40,30,15,.25),0 8px 18px rgba(60,50,30,.18)}
+.destaque-sites .placa::after{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,0))}
+.destaque-sites .placa b{display:block;font:600 1.3rem/1.15 var(--display)}
+.destaque-sites .placa i{display:block;margin-top:3px;font:400 .72rem/1.3 var(--serif);font-style:normal;opacity:.78;overflow-wrap:anywhere}
+.destaque-sites a.obra:hover .placa,.destaque-sites a.obra:focus-visible .placa{box-shadow:0 2px 4px rgba(40,30,15,.28),0 14px 26px rgba(60,50,30,.3)}
+.destaque-sites .eixo{margin-top:12px}
+h3.sub[id]{scroll-margin-top:calc(var(--hh,64px) + 14px)}
+@media print{.destaque-sites .placa{box-shadow:none;border:1px solid var(--linha);color:var(--tinta);background:none}}
 h3.sub{font:600 1.45rem/1.3 var(--display);color:var(--azul);margin:1.9em 0 .55em;padding-bottom:.35em;border-bottom:1px solid var(--linha);position:relative}
 h3.sub::after{content:"❦";position:absolute;right:0;bottom:-.75em;background:var(--papel);padding-left:.5em;color:var(--sepia);font-size:1rem}
 .prosa .fonte{font-size:.86em;color:#6b6257;font-style:italic;text-align:left;border-left:3px solid var(--sepia);padding-left:.8em;margin:-.3em 0 1.4em}
@@ -684,8 +708,8 @@ html{scroll-behavior:smooth}
 <p>A segunda é a Psicologia Jurídica, tema da primeira especialização de Paulo, e é definida pela Resolução CFP nº 23/2022 como a área de atuação profissional da Psicologia no âmbito do Sistema de Justiça e dos serviços do Sistema de Segurança Pública e do Sistema de Garantia de Direitos que executam sentenças judiciais, como o Sistema Prisional e o Sistema Socioeducativo.</p>
 <p>Entre as atribuições listadas pelo CFP estão elaborar documentos psicológicos para o Sistema de Justiça, com sigilo, autonomia profissional e garantia dos direitos humanos; participar do planejamento e da avaliação de políticas públicas de cidadania e de prevenção da violência; acolher, orientar, avaliar e encaminhar pessoas ligadas ao fenômeno da violência; atuar nas medidas socioeducativas; contribuir, em equipes interprofissionais, com a Justiça da Infância e Juventude; intermediar conflitos cíveis sobre convivência, guarda e adoção, pelo princípio do melhor interesse da criança e do adolescente; promover mediação, conciliação e práticas restaurativas; e participar do controle social das políticas públicas, inclusive em Conselhos de Direitos.</p>
 <p class="fonte">Fonte: CFP, <a href="https://site.crpsc.org.br/wp-content/uploads/2024/09/IV-Psicologia-Juridica.pdf" rel="noopener noreferrer" target="_blank">Resolução CFP nº 23/2022 (ementa de Psicologia Jurídica)</a>.</p>
-<h3 class="sub">CREPOP: leitura recomendada</h3>
-<p>Por fim, uma indicação de Paulo aos colegas. O Centro de Referência Técnica em Psicologia e Políticas Públicas (CREPOP) é mantido pelo CFP e pelos Conselhos Regionais e tem a função de orientar a atuação profissional nas políticas públicas. Por isso, vale a leitura a quem atua, ou pretende atuar, na assistência social, na saúde, no sistema socioeducativo e em outros serviços públicos. Seu principal produto são as Referências Técnicas, elaboradas com a participação da categoria, por meio de consulta pública, entre elas as de atuação no CRAS/SUAS, nos Centros de Atenção Psicossocial (CAPS), nas medidas socioeducativas, junto aos povos indígenas e quilombolas, e em políticas para a população em situação de rua e para mulheres em situação de violência.</p>
+<h3 class="sub" id="indicacoes">CREPOP: leitura recomendada</h3>
+<p>Esta é uma indicação de Paulo aos colegas. O Centro de Referência Técnica em Psicologia e Políticas Públicas (CREPOP) é mantido pelo CFP e pelos Conselhos Regionais e tem a função de orientar a atuação profissional nas políticas públicas. Por isso, vale a leitura a quem atua, ou pretende atuar, na assistência social, na saúde, no sistema socioeducativo e em outros serviços públicos. Seu principal produto são as Referências Técnicas, elaboradas com a participação da categoria, por meio de consulta pública, entre elas as de atuação no CRAS/SUAS, nos Centros de Atenção Psicossocial (CAPS), nas medidas socioeducativas, junto aos povos indígenas e quilombolas, e em políticas para a população em situação de rua e para mulheres em situação de violência.</p>
 <div class="destaque-crepop">
   <span class="selo">Leitura recomendada</span>
   <h4>Em destaque: obras da Assistência Social</h4>
@@ -699,7 +723,7 @@ html{scroll-behavior:smooth}
   <p class="todas"><a href="https://crepop.cfp.org.br/tipo_de_publicacao/assistencia-social/" rel="noopener noreferrer" target="_blank">Ver todas as publicações de Assistência Social</a> · <a href="https://crepop.cfp.org.br/publicacoes/" rel="noopener noreferrer" target="_blank">catálogo completo do CREPOP</a></p>
 </div>
 <p class="fonte">Fonte: CFP, <a href="https://site.cfp.org.br/publicacoes/referencias-tecnicas-crepop/" rel="noopener noreferrer" target="_blank">Referências Técnicas do CREPOP</a>.</p>
-<h3 class="sub">Livros recomendados</h3>
+<h3 class="sub" id="livros">Livros recomendados</h3>
 <p>Para quem está começando no SUAS, ou quer olhar a política por outro ângulo, Paulo indica duas leituras que se complementam: uma conta como a Psicologia entrou na Assistência Social, a outra mostra o trabalho do dia a dia em um CRAS.</p>
 <div class="destaque-crepop destaque-livros">
   <ul>
@@ -708,6 +732,47 @@ html{scroll-behavior:smooth}
   </ul>
 </div>
 <p class="fonte">Fontes: <a href="https://www.livrosabertos.abcd.usp.br/portaldelivrosUSP/catalog/book/1626" rel="noopener noreferrer" target="_blank">Portal de Livros Abertos da USP</a> (licença CC BY-NC 4.0); <a href="https://www.amazon.com.br/Psicologia-sobe-morro-desce-ladeira/dp/6525014956" rel="noopener noreferrer" target="_blank">Amazon Brasil</a> (Editora Appris).</p>
+<h3 class="sub" id="pesquisa-roraima">Pesquisar o SUAS em Roraima: um convite</h3>
+<p>Antes das fontes, um convite de Paulo a quem atua no estado. Em buscas exploratórias, feitas em outubro de 2026 nas bases abertas indicadas logo abaixo, a literatura sobre a assistência social em Roraima aparece em boa parte ligada à migração venezuelana, ao povo Warao e à saúde, e o trabalho do psicólogo no SUAS local quase não aparece. Não se trata de um levantamento sistemático nem de uma contagem completa, mas de um retrato de por onde a produção avançou e de onde há espaço.</p>
+<ul class="funil">
+  <li style="--w:100%"><b>Brasil: o psicólogo no CRAS</b><span>Uma revisão sistemática da literatura, sobre o período de 2011 a 2020, localizou 182 artigos e manteve 35 que atendiam a todos os critérios.</span></li>
+  <li style="--w:90%"><b>Roraima: a assistência social</b><span>Há estudos sobre pobreza e migração, acolhimento, abrigos e acesso aos serviços. Um projeto do PPGSOF/UFRR, por exemplo, trata do acesso de migrantes ao SUAS em Boa Vista, com técnicos de dois CRAS.</span></li>
+  <li style="--w:80%"><b>Roraima: o psicólogo na assistência social</b><span>Foi o recorte em que menos encontramos. Em Boa Vista, apareceram uma dissertação do PROCISA/UFRR sobre a intersetorialidade entre saúde mental e assistência social, um estudo com 16 psicólogas(os) da educação, que os autores apresentam como pioneiro no município, e o artigo “Psicologia e SUAS: o psicólogo na proteção social básica”.</span></li>
+</ul>
+<p>O que fica em aberto são perguntas que só quem está no serviço consegue formular bem:</p>
+<ul class="perguntas">
+  <li>Como mudam a escuta e o acompanhamento familiar quando a família é migrante ou indígena e a língua é outra?</li>
+  <li>Como o psicólogo do CRAS e a Rede de Atenção Psicossocial (RAPS) se articulam, na prática, no território?</li>
+  <li>Qual é o lugar do psicólogo quando a demanda cresce mais depressa que a equipe?</li>
+  <li>O que as famílias atendidas dizem sobre o serviço que recebem?</li>
+</ul>
+<p>Relatos de experiência, estudos de caso e pesquisas de mestrado são caminhos possíveis para responder a elas. Para começar, vale ver o que já existe. Três buscas de partida, que se adaptam à sintaxe de cada base (SciELO, BVS Saúde e PubMed):</p>
+<ul class="busca">
+  <li><code>("assistência social" OR SUAS OR CRAS) AND Roraima</code></li>
+  <li><code>(psicólogo OR psicologia) AND (CRAS OR SUAS OR "proteção social básica") AND (Roraima OR "Boa Vista")</code></li>
+  <li><code>(Warao OR venezuelano* OR migrante*) AND (CRAS OR SUAS OR "assistência social")</code></li>
+</ul>
+<p>Os resultados mudam com o tempo e de uma base para outra, por isso o site não fixa um número. O melhor termômetro é repetir a busca de vez em quando.</p>
+<p class="fonte">Fontes: <a href="https://doi.org/10.26864/PCS.v11.n2.8" rel="noopener noreferrer" target="_blank">revisão sistemática sobre a atuação do psicólogo no CRAS (2011–2020)</a>; <a href="https://www.scielo.br/j/pcp/a/TVTRWwHGLSBnwWB4Jqp75Xp/" rel="noopener noreferrer" target="_blank">Psicólogas(os) no Sistema Educacional de Boa Vista/Roraima</a> (<em>Psicologia: Ciência e Profissão</em>); defesas e projetos do <a href="https://sigaa.ufrr.br/sigaa/public/programa/defesas.jsf?lc=pt_BR&amp;id=1064" rel="noopener noreferrer" target="_blank">PPGSOF</a> e do <a href="https://sigaa.ufrr.br/sigaa/public/programa/defesas.jsf?lc=pt_BR&amp;id=1005" rel="noopener noreferrer" target="_blank">PROCISA</a>, da UFRR. Busca exploratória de outubro de 2026, sem pretensão de censo.</p>
+<h3 class="sub" id="fontes-cientificas">Sites científicos recomendados</h3>
+<p>Para ir direto às fontes, Paulo indica cinco sites. Os três primeiros reúnem artigos científicos de Psicologia e de saúde; os dois últimos pertencem às organizações da profissão, uma norte-americana e outra brasileira.</p>
+<div class="destaque-crepop destaque-sites">
+  <ul>
+    <li><a class="obra" href="https://www.scielo.br/" rel="noopener noreferrer" target="_blank"><span class="placa" aria-hidden="true"><b>SciELO</b><i>scielo.br</i></span><span class="eixo">Periódicos em acesso aberto</span><strong>SciELO Brasil</strong><span class="desc">Biblioteca eletrônica com revistas científicas do Brasil e da América Latina, com texto completo. Boa porta de entrada para a Psicologia produzida no país.</span><span class="meta"><b>Acesso aberto</b> · português, inglês e espanhol</span></a></li>
+    <li><a class="obra" href="https://bvsalud.org/" rel="noopener noreferrer" target="_blank"><span class="placa" aria-hidden="true"><b>BVS</b><i>bvsalud.org</i></span><span class="eixo">Saúde na América Latina</span><strong>BVS Saúde (Biblioteca Virtual em Saúde)</strong><span class="desc">Portal que pesquisa de uma só vez bases como a LILACS e a MEDLINE e outras fontes de informação em saúde, útil para saúde mental e políticas de saúde.</span><span class="meta"><b>Gratuito</b> · português, espanhol e inglês</span></a></li>
+    <li><a class="obra" href="https://pubmed.ncbi.nlm.nih.gov/" rel="noopener noreferrer" target="_blank"><span class="placa" aria-hidden="true"><b>PubMed</b><i>pubmed.ncbi.nlm.nih.gov</i></span><span class="eixo">Literatura biomédica</span><strong>PubMed</strong><span class="desc">Base da Biblioteca Nacional de Medicina dos Estados Unidos, com milhões de referências de artigos em saúde, inclusive psiquiatria e psicologia. A busca funciona melhor em inglês.</span><span class="meta"><b>Gratuito</b> · interface em inglês</span></a></li>
+    <li><a class="obra" href="https://www.apa.org/" rel="noopener noreferrer" target="_blank"><span class="placa" aria-hidden="true"><b>APA</b><i>apa.org</i></span><span class="eixo">Psicologia internacional</span><strong>APA, American Psychological Association</strong><span class="desc">Associação norte-americana de psicologia. Reúne o dicionário de psicologia, o código de ética, as normas de citação APA e notícias da ciência psicológica. A base PsycInfo, em geral, exige assinatura.</span><span class="meta"><b>Parte gratuita</b> · inglês</span></a></li>
+    <li><a class="obra" href="https://site.cfp.org.br/" rel="noopener noreferrer" target="_blank"><span class="placa" aria-hidden="true"><b>CFP</b><i>site.cfp.org.br</i></span><span class="eixo">Profissão no Brasil</span><strong>CFP, Conselho Federal de Psicologia</strong><span class="desc">Resoluções, notas técnicas, o Código de Ética Profissional e as publicações do CREPOP. Reúne as normas que orientam o exercício da profissão no país.</span><span class="meta"><b>Gratuito</b> · português</span></a></li>
+  </ul>
+</div>
+<h3 class="sub" id="mapas">Mapas para consulta</h3>
+<p>Quem trabalha no território precisa saber onde estão os serviços. Paulo indica dois mapas oficiais, um da assistência social e outro da saúde mental, para localizar a rede, entender o território e articular encaminhamentos.</p>
+<div class="destaque-crepop destaque-sites destaque-mapas">
+  <ul>
+    <li><a class="obra" href="https://mapa-social.mds.gov.br/" rel="noopener noreferrer" target="_blank"><span class="placa" aria-hidden="true"><b>Mapa Social</b><i>mapa-social.mds.gov.br</i></span><span class="eixo">Assistência social</span><strong>Mapa Social do MDS</strong><span class="desc">Ferramenta do Ministério do Desenvolvimento e Assistência Social para consultar mapas e dados sobre serviços e programas sociais no território.</span><span class="meta"><b>Gratuito</b> · site oficial do governo federal</span></a></li>
+    <li><a class="obra" href="https://novasage.saude.gov.br/politicas-programas-projetos-estrategias-e-acoes/rede-de-atencao-psicossocial-raps?tab=687a89d328fcb500017d5966" rel="noopener noreferrer" target="_blank"><span class="placa" aria-hidden="true"><b>RAPS</b><i>novasage.saude.gov.br</i></span><span class="eixo">Saúde mental</span><strong>Rede de Atenção Psicossocial (RAPS), no NovaSAGE</strong><span class="desc">Página do Ministério da Saúde sobre a RAPS, a rede de cuidado em saúde mental e uso de álcool e outras drogas, da qual fazem parte os CAPS.</span><span class="meta"><b>Gratuito</b> · site oficial do governo federal</span></a></li>
+  </ul>
+</div>
 </div>
 
 </section>
@@ -806,6 +871,7 @@ html{scroll-behavior:smooth}
     <p>O primeiro campo é o mais próximo da rotina profissional de Paulo. A Psicologia Social parte da ideia de que o sofrimento, os vínculos e as escolhas das pessoas só se compreendem em suas condições históricas, econômicas e culturais, e a Proteção Social Básica é o lugar onde essa ideia vira rotina de trabalho. O trabalho se organiza em três serviços que, segundo a Tipificação Nacional de Serviços Socioassistenciais (CNAS, 2009), compõem esse nível de proteção, e o interesse recai sobre o papel do psicólogo em cada um deles (<a href="https://site.cfp.org.br/publicacoes/referencias-tecnicas-crepop/" rel="noopener noreferrer" target="_blank">CFP, 2021</a>).</p>
     <p>O primeiro é o Serviço de Proteção e Atendimento Integral à Família (PAIF), trabalho social de caráter continuado com famílias do território, que envolve acolhida, acompanhamento familiar, oficinas e articulação com a rede. O segundo é o Serviço de Proteção Social Básica no Domicílio para pessoas com deficiência e idosas, que leva o atendimento à casa do usuário e exige atenção às barreiras de acesso, ao papel dos cuidadores e ao risco de isolamento. O terceiro é o Serviço de Convivência e Fortalecimento de Vínculos (SCFV), realizado em grupos organizados por ciclos de vida, que busca ampliar trocas culturais, prevenir situações de risco e fortalecer a convivência comunitária. Ao redor desses serviços estão ainda a busca ativa, o acesso a benefícios e ao Cadastro Único e a articulação com a saúde, a educação e a proteção especial.</p>
     <p>Sobre esse conjunto, o interesse de Paulo se organiza em perguntas que o próprio serviço coloca. Como exercer a escuta qualificada sem transformar o CRAS em consultório? Como a atuação do psicólogo se distingue, e ao mesmo tempo se complementa, do trabalho do assistente social dentro da equipe de referência? Que lugar ocupam a prevenção, a matricialidade sociofamiliar e a participação dos usuários? Como lidar com o sigilo, com a produção de documentos psicológicos (CFP, 2019) e com os limites entre a Proteção Social Básica e a Especial? O propósito é produzir conhecimento que aprimore a técnica, a ética e a metodologia do trabalho e que, ao voltar ao serviço, torne a garantia de direitos mais efetiva.</p>
+    <p>Esse propósito também é um convite a quem trabalha em Roraima: <a href="#pesquisa-roraima">veja o que a literatura já traz sobre o psicólogo no SUAS do estado, o que falta e como começar a buscar</a>.</p>
     <h3 class="sub">Migração, refúgio e impactos institucionais</h3>
     <figure class="fig"><img src="imagens/foto-territorio.jpg" width="440" height="550" loading="lazy" decoding="async" alt="Selfie de Paulo Xavier com microfone, tendo ao fundo um grupo numeroso de pessoas sentadas sob uma tenda"><figcaption>Atividade coletiva com famílias no território.</figcaption></figure>
     <p>Do trabalho na rede de Boa Vista nasce a segunda frente de Paulo, em que se estudam os fluxos migratórios contemporâneos, com ênfase nos efeitos da migração oriunda da República Bolivariana da Venezuela sobre a organização e a oferta dos serviços socioassistenciais. Em Roraima, estado de fronteira com a Venezuela e a Guiana, o aumento da demanda pressiona a rede de atendimento, e compreender esse processo exige dados, análise institucional e sensibilidade às trajetórias de quem chega (<a href="https://revistas.uece.br/index.php/tensoesmundiais/article/download/855/1027/4462" rel="noopener noreferrer" target="_blank">SILVA; SOUSA, 2018</a>; <a href="https://doi.org/10.1590/Interface.190807" rel="noopener noreferrer" target="_blank">ARRUDA-BARBOSA; SALES; TORRES, 2020</a>). A questão é como a rede se reorganiza e como assegurar acolhimento e proteção de qualidade tanto a migrantes quanto à população local. No plano normativo, a Lei de Migração assegura ao migrante o acesso a serviços públicos de saúde e de assistência social, sem discriminação em razão da nacionalidade e da condição migratória, e a Lei do Refúgio disciplina a proteção de solicitantes e refugiados (BRASIL, 1997; BRASIL, 2017).</p>
@@ -920,9 +986,9 @@ html{scroll-behavior:smooth}
 <aside class="paulus" id="paulus" aria-label="Paulus, mascote do site">
   <div class="pb" id="pb" role="status" aria-live="polite" hidden>
     <button type="button" class="pa-x" id="pa-x" aria-label="Fechar balão">×</button>
-    <span class="quem">Paulus</span>
+    <span class="quem">Paulus <small id="pa-c"></small></span>
     <p id="pa-t"></p>
-    <div class="pa-bt"><button type="button" id="pa-n">Próxima nota</button><a id="pa-ir" href="#inicio" hidden></a></div>
+    <div class="pa-bt"><button type="button" id="pa-n">Continuar</button><a id="pa-ir" href="#inicio" hidden></a></div>
   </div>
   <button type="button" class="pm" id="pm" aria-label="Conversar com o Paulus, mascote do site" aria-expanded="false" aria-controls="pb">
     <svg viewBox="0 0 120 172" aria-hidden="true" focusable="false"><defs>
@@ -1042,41 +1108,61 @@ html{scroll-behavior:smooth}
 })();
 </script>
 <script>
-/* Paulus, o mascote */
+/* Paulus, o mascote: apresenta o Paulo ao longo da leitura */
 (function(){
   'use strict';
   var box=document.getElementById('pb'),btn=document.getElementById('pm'),txt=document.getElementById('pa-t'),
-      prox=document.getElementById('pa-n'),ir=document.getElementById('pa-ir'),fechar=document.getElementById('pa-x');
+      prox=document.getElementById('pa-n'),ir=document.getElementById('pa-ir'),fechar=document.getElementById('pa-x'),
+      cont=document.getElementById('pa-c');
   if(!box||!btn)return;
   var falas={
     inicio:[
-      {t:'Olá. Sou o Paulus, mascote do site. A leitura é contínua: basta rolar a página ou usar o menu.'},
-      {t:'Nesta página constam o currículo, a produção acadêmica, as áreas de interesse e os contatos de Paulo Xavier.',go:'#curriculo',l:'Ver currículo'}
+      {t:'Oi! Eu sou o Paulus, o mascote do site. Hoje faço as honras e apresento o Paulo Xavier a você.'},
+      {t:'Ele é psicólogo no SUAS e mestre em Antropologia Social. Enquanto você rola a página, eu conto o que há em cada parte.'},
+      {t:'Vamos começar pelo caminho dele?',go:'#curriculo',l:'Ver currículo'}
     ],
     curriculo:[
-      {t:'As definições do CFP e a indicação do CREPOP, mais abaixo, auxiliam a leitura de quem é de outra área.'},
-      {t:'Nesta seção estão ainda o Currículo Lattes e o resumo do currículo em PDF.',go:'#producao',l:'Ver produção'}
+      {t:'Aqui estão a formação e a trajetória do Paulo, até chegar ao CRAS. Há também o Currículo Lattes e o resumo em PDF.'},
+      {t:'Se você é de outra área, as definições do CFP logo abaixo explicam o que faz o psicólogo no SUAS.'},
+      {t:'No fim desta parte, o Paulo deixa suas indicações: leituras do CREPOP, livros, um convite à pesquisa em Roraima, sites científicos e mapas.',go:'#indicacoes',l:'Ver indicações'},
+      {t:'Depois vem o que ele publicou.',go:'#producao',l:'Ver produção'}
     ],
     producao:[
-      {t:'Constam desta seção os artigos, os capítulos, o trabalho de conclusão de curso e a dissertação, com DOI e texto completo.'},
-      {t:'Seguem os indicadores do Google Acadêmico e os trabalhos que citam a dissertação.',go:'#interesses',l:'Ver interesses'}
+      {t:'Agora o que o Paulo publicou: artigos, capítulos, o trabalho de conclusão de curso e a dissertação, com DOI e texto completo.'},
+      {t:'Mais abaixo ficam os indicadores do Google Acadêmico e os trabalhos que citam a dissertação.',go:'#interesses',l:'Ver interesses'}
     ],
     interesses:[
-      {t:'Aqui o foco passa dos trabalhos publicados para as perguntas que orientam a pesquisa e a prática. Uma das frentes é a chegada do povo Warao a Boa Vista.'},
-      {t:'As referências citadas nesta seção estão ao final dela.',go:'#contato',l:'Ver contato'}
+      {t:'Aqui o assunto muda: em vez do que o Paulo publicou, as perguntas que guiam a pesquisa e o trabalho dele. Uma das frentes é a chegada do povo Warao a Boa Vista.'},
+      {t:'As referências citadas nesta parte estão no final dela.',go:'#contato',l:'Ver contato'}
     ],
     contato:[
-      {t:'Constam desta seção os locais de atuação, com ligação para o mapa, e os perfis acadêmicos. As redes sociais figuram no rodapé.',go:'#inicio',l:'Voltar ao início'}
+      {t:'Chegamos ao fim da visita! Aqui estão os locais onde o Paulo atua, com mapa, e os perfis acadêmicos. As redes sociais ficam no rodapé.'},
+      {t:'Foi um prazer apresentar o Paulo. Volte quando quiser!',go:'#inicio',l:'Voltar ao início'}
     ]
   };
-  var pag='inicio',i=0,fechadoPeloUsuario=false,vistas={};
+  var notas={
+    'indicacoes':{t:'Esta é a indicação do Paulo aos colegas: as Referências Técnicas do CREPOP. A capa marcada como “Atuação de Paulo” é a do CRAS, onde ele trabalha.'},
+    'livros':{t:'Duas leituras para quem está chegando ao SUAS. A primeira tem PDF gratuito.'},
+    'pesquisa-roraima':{t:'Um desafio do Paulo aos colegas de Roraima: ainda há muito a pesquisar sobre o trabalho do psicólogo no SUAS do estado. Veja o que já existe e que perguntas ficam abertas.'},
+    'fontes-cientificas':{t:'Agora, para ir direto às fontes: cinco sites científicos que o Paulo recomenda. SciELO e BVS trazem muita coisa em português.'},
+    'mapas':{t:'Para encontrar os serviços no território, o Paulo indica dois mapas: o Mapa Social, da assistência social, e a RAPS, da saúde mental.'}
+  };
+  var pag='inicio',i=0,fechadoPeloUsuario=false,vistas={},vistasNotas={};
   try{fechadoPeloUsuario=sessionStorage.getItem('paulus-fechado')==='1'}catch(e){}
   function pagina(){return document.body.getAttribute('data-pagina')||'inicio'}
+  function falar(){btn.classList.remove('fala');void btn.offsetWidth;btn.classList.add('fala')}
   function mostrarFala(){
-    var l=falas[pag]||falas.inicio,f=l[i%l.length];
-    txt.textContent=f.t;btn.classList.remove('fala');void btn.offsetWidth;btn.classList.add('fala');
+    var l=falas[pag]||falas.inicio;
+    if(i>=l.length)i=l.length-1;
+    var f=l[i];
+    txt.textContent=f.t;txt.scrollTop=0;falar();
     if(f.go){ir.href=f.go;ir.textContent=f.l;ir.hidden=false}else ir.hidden=true;
-    prox.hidden=l.length<2;
+    prox.hidden=i>=l.length-1;
+    cont.textContent=l.length>1?(i+1)+' de '+l.length:'';
+  }
+  function mostrarNota(n){
+    txt.textContent=n.t;txt.scrollTop=0;falar();
+    ir.hidden=true;prox.hidden=true;cont.textContent='';
   }
   function abrir(){box.hidden=false;btn.setAttribute('aria-expanded','true');mostrarFala()}
   function fecharBalao(manual){box.hidden=true;btn.setAttribute('aria-expanded','false');if(manual){fechadoPeloUsuario=true;try{sessionStorage.setItem('paulus-fechado','1')}catch(e){}}}
@@ -1090,6 +1176,18 @@ html{scroll-behavior:smooth}
     pag=nova;i=0;
     if(!fechadoPeloUsuario&&!vistas[pag]){vistas[pag]=1;abrir()} else if(!box.hidden){mostrarFala()}
   });
+  /* comentários do Paulus quando o visitante chega às indicações */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var id=e.target.id;if(vistasNotas[id]||!notas[id])return;
+      vistasNotas[id]=1;io.unobserve(e.target);
+      if(fechadoPeloUsuario)return;
+      if(box.hidden){box.hidden=false;btn.setAttribute('aria-expanded','true')}
+      mostrarNota(notas[id]);
+    })},{rootMargin:'0px 0px -55% 0px',threshold:0});
+    Object.keys(notas).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+  }
   pag=pagina();vistas[pag]=1;
   if(!fechadoPeloUsuario)setTimeout(abrir,1200);
 })();
