@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://paulusxavier.github.io/vita/sitemap.xml
