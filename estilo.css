@@ -374,3 +374,10 @@ h3.sub[id]{scroll-margin-top:calc(var(--hh,64px) + 14px)}
   #resumo-pdf .rodape{margin-top:12pt;font-size:9pt;border-top:1px solid #000;padding-top:4pt}
 }
 
+
+/* Modo escuro: os quadros usavam branco translúcido (pensado para o tema claro),
+   o que deixava o fundo cinza-claro e o texto claro quase ilegível. */
+@media(prefers-color-scheme:dark){
+  .destaque-crepop,.funil li{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.03));box-shadow:0 4px 14px rgba(0,0,0,.35)}
+  .destaque-crepop .eixo{color:var(--sepia-txt)}
+}
