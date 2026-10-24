@@ -13,7 +13,7 @@ Ao alterar `estilo.css`, `site.js` ou a lista de imagens, aumente `VERSION` em `
 
 Ordem das seções: Início, Currículo (com a indicação do CREPOP), Produção, Interesses, Psicologia em Roraima, Leituras e fontes, Contato e Referências.
 
-Psicologia em Roraima: panorama da distribuição de psicólogas(os) (do país ao CRAS), produção sobre a atuação no CRAS e lacunas de pesquisa.
+Psicologia em Roraima: panorama da distribuição de psicólogas(os) (do país ao CRAS), registros de psicólogas(os) no SUAS de Roraima (Censo SUAS 2025, por município e módulo), produção sobre a atuação no CRAS e lacunas de pesquisa.
 
 Leituras e fontes: livros, sites científicos (SciELO, BVS Saúde, PubMed), sites da profissão (APA e CFP) e mapas (Mapa Social do MDS e RAPS no NovaSAGE).
 
