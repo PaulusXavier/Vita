@@ -84,7 +84,7 @@
       {t:'Depois vem um panorama da Psicologia em Roraima, com números e as lacunas de pesquisa sobre o psicólogo no CRAS do estado.',go:'#roraima',l:'Ver Roraima'}
     ],
     roraima:[
-      {t:'Esta parte reúne números sobre psicólogas(os) do Brasil a Roraima e examina o que já foi publicado sobre o trabalho no CRAS do estado. Quanto mais perto da assistência social, menos dados existem.'},
+      {t:'Esta parte reúne números sobre psicólogas(os) do Brasil a Roraima e examina o que já foi publicado sobre o trabalho no CRAS do estado. Há também os dados do Censo SUAS 2025 sobre os psicólogos dos CRAS e CREAS do estado.'},
       {t:'Em seguida vêm as leituras e fontes que o Paulo indica: livros, sites científicos, sites da profissão e mapas.',go:'#leituras',l:'Ver leituras'}
     ],
     leituras:[
@@ -102,7 +102,8 @@
   var notas={
     'indicacoes':{t:'Esta é a indicação do Paulo aos colegas: as Referências Técnicas do CREPOP. A capa marcada como “Atuação de Paulo” é a do CRAS, onde ele trabalha.'},
     'livros-recomendados':{t:'Duas leituras para quem está chegando ao SUAS. A primeira tem PDF gratuito.'},
-    'psicologia-roraima':{t:'Um funil com números: do Brasil a Roraima, a Boa Vista e aos CRAS. Quanto mais perto da assistência social, menos dados existem. No CRAS, praticamente só há o texto do próprio Paulo.'},
+    'psicologia-roraima':{t:'Um funil com números: do Brasil a Roraima, a Boa Vista e aos CRAS. Perto da assistência social, os números vêm do Censo SUAS; já a produção científica sobre o CRAS é quase só o texto do próprio Paulo.'},
+    'censo-suas-roraima':{t:'Dados do Censo SUAS 2025: são registros de trabalhadores, não pessoas únicas. Um psicólogo pode aparecer em mais de um serviço.'},
     'um-trabalho':{t:'Aqui vai um dado curioso: sobre o psicólogo no CRAS em Roraima, o único texto que o Paulo encontrou foi o dele mesmo. Por isso ele convida os colegas a escrever.'},
     'pesquisa-roraima':{t:'Ainda há muito a pesquisar sobre o trabalho do psicólogo no SUAS do estado. Veja o que já existe e que perguntas ficam abertas.'},
     'fontes-cientificas':{t:'Agora, para ir direto às fontes: três sites científicos que o Paulo recomenda. SciELO e BVS trazem muita coisa em português. Logo depois vêm dois sites da profissão, a APA e o CFP.'},
