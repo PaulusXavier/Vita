@@ -20,3 +20,5 @@ Leituras e fontes: livros, sites científicos (SciELO, BVS Saúde, PubMed), site
 Imagens: ficam todas na pasta `imagens/` (capas do CREPOP em `imagens/crepop/`, capas de livros em `imagens/livros/`).
 
 Fundamentação científica: as seções Interesses e Psicologia em Roraima citam literatura revisada (CRAS/SUAS, migração e Warao, prevenção, gamificação e psicometria); as obras constam em Referências, em ABNT. Alguns itens têm volume e páginas a completar a partir do texto original.
+
+Dados e discussão (out. 2026): Áreas de interesse trazem fluxos da Operação Acolhida (entradas, saídas, interiorizações), saúde mental de migrantes (MSF, 2022; Charlson et al., 2019) e o III LNUD (Fiocruz, 2017), cada um com a ressalva do que o dado não permite concluir. Charlson et al. (2019) foi citado de memória: conferir volume, páginas e DOI no texto original.
