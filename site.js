@@ -49,6 +49,39 @@
   if(subir)subir.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
 })();
 
+
+/* 1b. Índice lateral das seções longas (telas largas) */
+(function(){
+  'use strict';
+  var secoes=[].slice.call(document.querySelectorAll('section.pagina'));
+  var itens=[];
+  secoes.forEach(function(sec){
+    var hs=[].slice.call(sec.querySelectorAll('h3.sub'));
+    if(hs.length<3)return;
+    var nav=document.createElement('aside'),dentro=document.createElement('div'),b=document.createElement('b'),ul=document.createElement('ul');
+    nav.className='indice';nav.setAttribute('aria-label','Nesta seção');
+    dentro.className='indice-in';b.textContent='Nesta seção';
+    hs.forEach(function(h,n){
+      if(!h.id)h.id=sec.id+'-p'+(n+1);
+      var li=document.createElement('li'),a=document.createElement('a');
+      a.href='#'+h.id;a.textContent=h.textContent;li.appendChild(a);ul.appendChild(li);
+      itens.push({h:h,a:a});
+    });
+    dentro.appendChild(b);dentro.appendChild(ul);nav.appendChild(dentro);
+    sec.classList.add('tem-indice');sec.insertBefore(nav,sec.firstChild);
+  });
+  if(!itens.length)return;
+  var esp=false;
+  function marcar(){
+    esp=false;
+    var y=(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hh'))||64)+120,at=null;
+    itens.forEach(function(i){if(i.h.getBoundingClientRect().top<y)at=i});
+    itens.forEach(function(i){if(i===at)i.a.setAttribute('aria-current','true');else i.a.removeAttribute('aria-current')});
+  }
+  window.addEventListener('scroll',function(){if(!esp){esp=true;requestAnimationFrame(marcar)}},{passive:true});
+  marcar();
+})();
+
 /* 2. Links externos */
 (function(){
   [].forEach.call(document.querySelectorAll('main a[target="_blank"],footer a[target="_blank"]'),function(a){
