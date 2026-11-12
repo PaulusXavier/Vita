@@ -215,3 +215,12 @@ function baixarResumoPDF(){
   window.addEventListener('afterprint',volta);
   window.print();
 }
+
+/* 6. Gráficos: entrada animada (sem JS ou com movimento reduzido, aparecem prontos) */
+(function(){
+  'use strict';
+  var gs=[].slice.call(document.querySelectorAll('.graf'));
+  if(!gs.length||!('IntersectionObserver' in window)||(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25});
+  gs.forEach(function(g){g.classList.add('anim');io.observe(g)});
+})();
