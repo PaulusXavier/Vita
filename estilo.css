@@ -436,3 +436,101 @@ details.saiba p,.funil span,.refs li,.est-nota,.dica-tl,
 @media(max-width:480px){
   .prosa p,.texto p,.refs li,.linha-tempo .det p,details.saiba p{hyphenate-limit-chars:7 3 3}
 }
+
+/* =====================================================================
+   Gráficos e placas (nov. 2026)
+   Três matizes de dado, sempre na mesma ordem (verde, ouro, azul).
+   Todo valor aparece como texto; a tabela original fica em "Ver como tabela".
+   ===================================================================== */
+:root{--c1:#14896a;--c2:#c4901a;--c3:#2b7fb0;--on1:#fff;--on2:#16211d;--on3:#fff;--trilho:rgba(20,73,61,.09)}
+@media(prefers-color-scheme:dark){:root{--c1:#2f9a79;--c2:#bd9020;--c3:#3f8fc4;--on1:#0f1a17;--on2:#0f1a17;--on3:#0f1a17;--trilho:rgba(255,255,255,.08)}}
+
+/* placas: faixa fina de curvas de nível, com a latitude de Boa Vista */
+svg.banner{display:block;width:100%;height:auto;aspect-ratio:900/110;margin:0 0 34px;border-radius:6px;box-shadow:none;border:1px solid var(--linha)}
+.bn-c path{fill:none;stroke:#d9a82e;stroke-width:1;opacity:.28}
+.bn-l{stroke:#d9a82e;stroke-width:1.2;opacity:.7}
+.bn-t{font:560 30px var(--display);fill:#f4f5ef}
+.bn-k{font:500 11.5px var(--serif);fill:#d9a82e;letter-spacing:.07em}
+@media(max-width:560px){svg.banner{aspect-ratio:900/150}.bn-t{font-size:36px}.bn-k{font-size:13px}}
+
+/* figura de gráfico */
+.graf{margin:2rem 0 2.2rem;max-width:68ch;padding:20px 22px 16px;background:var(--vidro);border:1px solid var(--linha);border-top:4px solid var(--sepia);border-radius:0 0 8px 8px}
+.graf .gt{margin:0 0 14px;font:600 1.1rem/1.3 var(--display);color:var(--azul);text-align:left;hyphens:manual}
+.graf h4{margin:14px 0 8px;font:600 .92rem/1.3 var(--serif);color:var(--tinta)}
+.graf-nota{margin:12px 0 0;font-size:.84rem;line-height:1.5;color:var(--suave);text-align:left;hyphens:manual}
+.graf-nota.leg{display:flex;flex-wrap:wrap;gap:4px 18px;color:var(--tinta)}
+.k{display:inline-block;width:10px;height:10px;margin-right:7px;border-radius:2px;background:var(--c1)}
+.k1{background:var(--c1)}.k2{background:var(--c2)}.k3{background:var(--c3)}
+.tabela-dados{margin-top:14px;border-top:1px solid var(--linha);padding-top:8px}
+.tabela-dados summary{display:inline-flex;align-items:center;min-height:36px;cursor:pointer;font-size:.88rem;font-weight:600;color:var(--azul)}
+.tabela-dados .tab-est{margin:.6rem 0 .2rem;font-size:.9rem}
+.tabela-dados .g{display:none}
+.tabela-dados .tab-est caption{font-size:.95rem}
+
+/* barras horizontais */
+.hb{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.hb li{display:grid;grid-template-columns:minmax(7rem,38%) 1fr auto;align-items:center;gap:12px}
+.hb .r{font-size:.9rem;line-height:1.3;text-align:left;hyphens:manual}
+.hb .t{display:block;height:16px;background:var(--trilho);border-radius:0 4px 4px 0;overflow:hidden}
+.hb .b{display:block;height:100%;width:calc(var(--v)/var(--max)*100%);min-width:2px;border-radius:0 4px 4px 0;background:var(--c1);transform-origin:left}
+.hb .b.c2{background:var(--c2)}.hb .b.c3{background:var(--c3)}
+.hb .v{font:600 .9rem var(--serif);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;min-width:3.2rem}
+.hb.duo li{align-items:center}
+.hb .pp{display:flex;flex-direction:column;gap:3px}
+.hb .pp .t{height:11px}
+.hb .vv{display:flex;flex-direction:column;gap:3px}
+.hb .vv .v{font-size:.78rem;line-height:11px;font-weight:500;min-width:4.6rem}
+.hb.duo{--max:19}
+@media(max-width:560px){
+  .hb li{grid-template-columns:1fr auto;gap:2px 10px}
+  .hb .r{grid-column:1 / -1}
+  .hb.duo li{grid-template-columns:1fr auto}
+  .graf{padding:16px 14px 12px}
+}
+
+/* colunas verticais */
+.cl{list-style:none;margin:0;padding:0;display:flex;align-items:flex-end;justify-content:space-around;gap:16px;max-width:360px}
+.cl li{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.cl .cb{display:flex;align-items:flex-end;width:100%;height:150px;border-bottom:2px solid var(--linha)}
+.cl .b{display:block;width:100%;height:calc(var(--v)/var(--max)*100%);background:var(--c1);border-radius:4px 4px 0 0;transform-origin:bottom}
+.cl .v{font:600 1rem var(--serif);font-variant-numeric:tabular-nums}
+.cl .r{font-size:.88rem;color:var(--suave)}
+
+/* barras empilhadas 100% */
+.stks{display:flex;flex-direction:column;gap:16px}
+.stk-t{margin:0 0 5px;font:600 .9rem var(--serif);color:var(--tinta);text-align:left}
+.stk{display:flex;gap:2px;height:30px;border-radius:5px;overflow:hidden}
+.stk .s{flex:0 0 calc(var(--p)*1% - 2px);display:grid;place-items:center;font:700 .8rem var(--serif);font-variant-numeric:tabular-nums;min-width:3px}
+.stk .s1{background:var(--c1);color:var(--on1)}.stk .s2{background:var(--c2);color:var(--on2)}.stk .s3{background:var(--c3);color:var(--on3)}
+.stk-l{display:flex;flex-wrap:wrap;gap:2px 16px;margin:6px 0 0;font-size:.82rem;line-height:1.4;color:var(--suave);text-align:left;hyphens:manual}
+
+/* animação de entrada (só com JS e sem preferência por menos movimento) */
+.anim .hb .b,.anim .cl .b{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.anim:not(.in) .hb .b{transform:scaleX(0)}
+.anim:not(.in) .cl .b{transform:scaleY(0)}
+.anim .stk{transition:clip-path .9s cubic-bezier(.2,.7,.2,1)}
+.anim:not(.in) .stk{clip-path:inset(0 100% 0 0)}
+
+/* indicadores em cartões e funil como trilha */
+.est div{border-top:3px solid var(--sepia);box-shadow:0 3px 12px rgba(20,50,40,.07)}
+.est b{font-variant-numeric:tabular-nums}
+.funil{align-items:stretch;gap:0;padding:0 0 0 22px;border-left:2px solid var(--linha);margin-left:6px}
+.funil li{position:relative;width:100%;max-width:none;margin:0 0 10px;text-align:left;hyphens:manual;border-left:0;border:1px solid var(--linha);border-left:4px solid var(--sepia)}
+.funil li::before{content:"";position:absolute;left:-31px;top:18px;width:12px;height:12px;border-radius:50%;background:var(--papel);border:3px solid var(--sepia)}
+.funil li:last-child{margin-bottom:0}
+.funil li:last-child::before{border-color:var(--azul)}
+.tab-est .bar{background:var(--c1)}
+.tab-est tbody tr:hover{background:var(--trilho)}
+@media(prefers-reduced-motion:reduce){.anim .hb .b,.anim .cl .b,.anim .stk{transition:none}}
+@media print{.anim:not(.in) .b{transform:none!important}.anim:not(.in) .stk{clip-path:none!important}.tabela-dados{display:none}.graf{break-inside:avoid}}
+
+/* ajustes: largura fixa da coluna de valores e notas dentro da prosa */
+.hb li{grid-template-columns:minmax(7rem,36%) 1fr 6.4rem}
+.hb.duo li{grid-template-columns:minmax(7rem,30%) 1fr 5rem}
+.hb.hb-n li:has(.v:only-child){grid-template-columns:minmax(7rem,36%) 1fr 6.4rem}
+.graf .graf-nota{margin:12px 0 0;font-size:.84rem;line-height:1.5;color:var(--suave);text-align:left;hyphens:manual;max-width:none}
+.graf .graf-nota.leg{color:var(--tinta)}
+.graf .gt,.graf h4,.graf .stk-t,.graf .stk-l{text-align:left;hyphens:manual}
+.graf .hb .v{min-width:0}
+@media(max-width:560px){.hb li,.hb.duo li{grid-template-columns:1fr auto}.hb.duo li{grid-template-columns:1fr 5rem}}
+@media(max-width:560px){.funil li,.funil span{text-align:left!important;hyphens:manual!important}}
