@@ -28,3 +28,5 @@ Redesenho (out. 2026): identidade nova, ancorada em Boa Vista (2°49′N, a úni
 Os nomes de variáveis do CSS vêm de versões anteriores: `--azul` é a cor principal (verde), `--sepia` é o ouro e `--ardosia` é o verde-acinzentado de apoio.
 
 Ajuste de tipografia (out. 2026): nome da abertura reduzido (de até 142 px para até 72 px), subtítulo, texto de apresentação e citação menores, foto mais compacta; todo o texto corrido passou a ser justificado (bloco "texto justificado" no fim de `estilo.css`).
+
+Gráficos e placas (nov. 2026): as tabelas de números (Quadros 1 a 5) viraram gráficos em HTML e CSS puros (barras, barras duplas, barras 100% empilhadas e colunas), com a tabela original em "Ver como tabela". Há três figuras novas em Psicologia em Roraima (escala logarítmica do país ao CRAS, psicólogas(os) por 100 mil habitantes e evolução 2018–2026) e duas em Áreas de interesse (fluxos migratórios e III LNUD). Cores de dado em `--c1` (verde), `--c2` (ouro) e `--c3` (azul), no fim de `estilo.css`. As placas das seções viraram faixas finas de curvas de nível com a latitude de Boa Vista. A animação de entrada fica no bloco 6 de `site.js`.
