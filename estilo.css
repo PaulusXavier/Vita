@@ -23,9 +23,11 @@
   color-scheme:light dark;
 }
 @media(prefers-color-scheme:dark){
-  :root{--papel:#0f1a17;--papel2:#16241f;--tinta:#e7ede6;--ardosia:#7fa397;--azul:#8fd1b9;--sepia:#e6bb4c;--linha:#2b3d36;
+:root:not([data-tema="light"]){--papel:#0f1a17;--papel2:#16241f;--tinta:#e7ede6;--ardosia:#7fa397;--azul:#8fd1b9;--sepia:#e6bb4c;--linha:#2b3d36;
     --rio:#7db8d4;--sepia-txt:#e6bb4c;--suave:#a9b9b0;--sobre-azul:#0f1a17;--vidro:rgba(255,255,255,.05);--sombra:0 10px 30px rgba(0,0,0,.45)}
 }
+:root[data-tema="dark"]{--papel:#0f1a17;--papel2:#16241f;--tinta:#e7ede6;--ardosia:#7fa397;--azul:#8fd1b9;--sepia:#e6bb4c;--linha:#2b3d36;
+    --rio:#7db8d4;--sepia-txt:#e6bb4c;--suave:#a9b9b0;--sobre-azul:#0f1a17;--vidro:rgba(255,255,255,.05);--sombra:0 10px 30px rgba(0,0,0,.45)}
 
 /* ---------- base ---------- */
 *{box-sizing:border-box}
@@ -74,7 +76,10 @@ nav a[aria-current]::after{transform:scaleX(1)}
 /* ---------- abertura ---------- */
 .abertura{position:relative;overflow:hidden;border-bottom:1px solid var(--linha)}
 .abertura::before{content:"";position:absolute;top:0;right:0;bottom:0;width:min(38%,460px);background:var(--azul)}
-@media(prefers-color-scheme:dark){.abertura::before,.abertura-foto{background:var(--papel2)}}
+@media(prefers-color-scheme:dark){
+:root:not([data-tema="light"]) .abertura::before,:root:not([data-tema="light"]) .abertura-foto{background:var(--papel2)}
+}
+:root[data-tema="dark"] .abertura::before,:root[data-tema="dark"] .abertura-foto{background:var(--papel2)}
 .abertura .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:clamp(32px,5vw,72px);align-items:end;padding-top:clamp(32px,5vw,60px)}
 .abertura-texto{padding-bottom:clamp(32px,4.5vw,56px)}
 .lugar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0 0 16px;color:var(--suave);font-size:14px;font-weight:500;letter-spacing:.01em;animation:sobe .8s ease-out backwards}
@@ -147,7 +152,10 @@ svg.banner{display:block;width:100%;height:auto;margin-bottom:32px;border-radius
 .ilus svg{display:block;width:100%;height:auto}
 .ilus figcaption{margin-top:10px;text-align:center;font:italic 16px var(--serif);color:var(--suave)}
 @media(max-width:760px){.ilus{max-width:260px;margin:0 auto}}
-@media(prefers-color-scheme:dark){.ilus{background:rgba(255,255,255,.05)}}
+@media(prefers-color-scheme:dark){
+:root:not([data-tema="light"]) .ilus{background:rgba(255,255,255,.05)}
+}
+:root[data-tema="dark"] .ilus{background:rgba(255,255,255,.05)}
 .retrato{margin:2.2rem 0;padding:0}
 .retrato img{display:block;width:100%;height:auto;border:1px solid var(--linha);border-radius:6px;box-shadow:0 8px 28px rgba(20,50,40,.22)}
 .retrato figcaption{margin-top:.7rem;text-align:center;font:italic .95rem var(--serif);color:var(--suave)}
@@ -206,7 +214,10 @@ footer p{margin:18px 0 0;font-size:15px;opacity:.85}
 footer .links a{border-color:currentColor;color:inherit}
 footer .links a:hover,footer .redes a:hover{background:var(--sobre-azul);color:var(--azul)}
 footer .gl{background:var(--sepia);color:#16211d}
-@media(prefers-color-scheme:dark){footer{background:var(--papel2);color:var(--tinta)}}
+@media(prefers-color-scheme:dark){
+:root:not([data-tema="light"]) footer{background:var(--papel2);color:var(--tinta)}
+}
+:root[data-tema="dark"] footer{background:var(--papel2);color:var(--tinta)}
 
 
 /* Ilustração do currículo: Formação, pesquisa e prática */
@@ -233,7 +244,12 @@ footer .gl{background:var(--sepia);color:#16211d}
 .ilus-psi figcaption::before{content:"Ψ";display:block;margin:0 auto 4px;font:400 15px Georgia,serif;color:var(--sepia);opacity:.9}
 .destaque-livros .capa-obra.capa-ret{aspect-ratio:366/448;background:#fff}
 
-@media(prefers-color-scheme:dark){.ilus-psi{background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.02));box-shadow:0 10px 28px rgba(0,0,0,.4),inset 0 0 0 5px rgba(255,255,255,.04),inset 0 0 0 6px rgba(255,255,255,.12)}.ilus-psi .il-cover{fill:var(--ardosia)}}
+@media(prefers-color-scheme:dark){
+:root:not([data-tema="light"]) .ilus-psi{background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.02));box-shadow:0 10px 28px rgba(0,0,0,.4),inset 0 0 0 5px rgba(255,255,255,.04),inset 0 0 0 6px rgba(255,255,255,.12)}
+:root:not([data-tema="light"]) .ilus-psi .il-cover{fill:var(--ardosia)}
+}
+:root[data-tema="dark"] .ilus-psi{background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.02));box-shadow:0 10px 28px rgba(0,0,0,.4),inset 0 0 0 5px rgba(255,255,255,.04),inset 0 0 0 6px rgba(255,255,255,.12)}
+:root[data-tema="dark"] .ilus-psi .il-cover{fill:var(--ardosia)}
 /* fotos pequenas dentro do texto */
 .prosa h3.sub{clear:both}
 .fig{float:right;width:190px;margin:.35rem 0 .9rem 1.5rem;padding:0;shape-margin:.6rem}
@@ -390,9 +406,11 @@ h3.sub[id]{scroll-margin-top:calc(var(--hh,64px) + 14px)}
 /* Modo escuro: os quadros usavam branco translúcido (pensado para o tema claro),
    o que deixava o fundo cinza-claro e o texto claro quase ilegível. */
 @media(prefers-color-scheme:dark){
-  .destaque-crepop,.funil li{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.03));box-shadow:0 4px 14px rgba(0,0,0,.35)}
-  .destaque-crepop .eixo{color:var(--sepia-txt)}
+:root:not([data-tema="light"]) .destaque-crepop,:root:not([data-tema="light"]) .funil li{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.03));box-shadow:0 4px 14px rgba(0,0,0,.35)}
+:root:not([data-tema="light"]) .destaque-crepop .eixo{color:var(--sepia-txt)}
 }
+:root[data-tema="dark"] .destaque-crepop,:root[data-tema="dark"] .funil li{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.03));box-shadow:0 4px 14px rgba(0,0,0,.35)}
+:root[data-tema="dark"] .destaque-crepop .eixo{color:var(--sepia-txt)}
 
 
 
@@ -443,7 +461,10 @@ details.saiba p,.funil span,.refs li,.est-nota,.dica-tl,
    Todo valor aparece como texto; a tabela original fica em "Ver como tabela".
    ===================================================================== */
 :root{--c1:#14896a;--c2:#c4901a;--c3:#2b7fb0;--on1:#fff;--on2:#16211d;--on3:#fff;--trilho:rgba(20,73,61,.09)}
-@media(prefers-color-scheme:dark){:root{--c1:#2f9a79;--c2:#bd9020;--c3:#3f8fc4;--on1:#0f1a17;--on2:#0f1a17;--on3:#0f1a17;--trilho:rgba(255,255,255,.08)}}
+@media(prefers-color-scheme:dark){
+:root:not([data-tema="light"]){--c1:#2f9a79;--c2:#bd9020;--c3:#3f8fc4;--on1:#0f1a17;--on2:#0f1a17;--on3:#0f1a17;--trilho:rgba(255,255,255,.08)}
+}
+:root[data-tema="dark"]{--c1:#2f9a79;--c2:#bd9020;--c3:#3f8fc4;--on1:#0f1a17;--on2:#0f1a17;--on3:#0f1a17;--trilho:rgba(255,255,255,.08)}
 
 /* placas: faixa fina de curvas de nível, com a latitude de Boa Vista */
 svg.banner{display:block;width:100%;height:auto;aspect-ratio:900/110;margin:0 0 34px;border-radius:6px;box-shadow:none;border:1px solid var(--linha)}
@@ -534,3 +555,30 @@ svg.banner{display:block;width:100%;height:auto;aspect-ratio:900/110;margin:0 0 
 .graf .hb .v{min-width:0}
 @media(max-width:560px){.hb li,.hb.duo li{grid-template-columns:1fr auto}.hb.duo li{grid-template-columns:1fr 5rem}}
 @media(max-width:560px){.funil li,.funil span{text-align:left!important;hyphens:manual!important}}
+
+/* =====================================================================
+   Tema manual e acabamentos (nov. 2026)
+   O botão do cabeçalho alterna entre claro e escuro; sem escolha, vale a preferência do sistema.
+   ===================================================================== */
+:root[data-tema="light"]{color-scheme:light}
+:root[data-tema="dark"]{color-scheme:dark}
+.topo .wrap{flex-wrap:nowrap}
+.tema-btn{flex:none;display:inline-grid;place-items:center;width:44px;height:44px;margin-left:4px;padding:0;border:1px solid var(--linha);border-radius:50%;background:transparent;color:var(--tinta);cursor:pointer;transition:background .2s,border-color .2s}
+.tema-btn:hover{background:var(--papel2);border-color:var(--azul)}
+.tema-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tema-btn .i-lua{display:none}
+:root[data-tema="dark"] .tema-btn .i-sol{display:none}
+:root[data-tema="dark"] .tema-btn .i-lua{display:block}
+@media(prefers-color-scheme:dark){
+  :root:not([data-tema="light"]) .tema-btn .i-sol{display:none}
+  :root:not([data-tema="light"]) .tema-btn .i-lua{display:block}
+}
+@media(max-width:560px){.tema-btn{width:40px;height:40px;margin-left:0}}
+@media print{.tema-btn{display:none!important}}
+
+/* texto de apresentação da abertura: linha curta, não deve ser esticada */
+.abertura .lead{text-align:left;hyphens:manual;-webkit-hyphens:manual}
+
+/* troca de tema sem piscar: transição curta só quando o visitante clica */
+.troca-tema,.troca-tema *{transition:background-color .25s,color .25s,border-color .25s!important}
+@media(prefers-reduced-motion:reduce){.troca-tema,.troca-tema *{transition:none!important}}
