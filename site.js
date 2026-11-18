@@ -4,6 +4,8 @@
  * 3. Paulus, o mascote.
  * 4. Modo offline e atualização automática (sw.js).
  * 5. Resumo do currículo em PDF (impressão).
+ * 6. Gráficos: entrada animada.
+ * 7. Tema claro/escuro manual (botão do cabeçalho).
  */
 
 /* 1. Navegação */
@@ -223,4 +225,40 @@ function baixarResumoPDF(){
   if(!gs.length||!('IntersectionObserver' in window)||(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))return;
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25});
   gs.forEach(function(g){g.classList.add('anim');io.observe(g)});
+})();
+
+/* 7. Tema claro/escuro: o botão do cabeçalho guarda a escolha; sem escolha, vale o sistema */
+(function(){
+  'use strict';
+  var btn=document.getElementById('tema');
+  if(!btn)return;
+  var raiz=document.documentElement,
+      escuro=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+  function ativo(){
+    var t=raiz.getAttribute('data-tema');
+    if(t==='dark'||t==='light')return t;
+    return escuro&&escuro.matches?'dark':'light';
+  }
+  function cor(t){return t==='dark'?'#0f1a17':'#f4f5ef'}
+  function rotular(){
+    var t=ativo();
+    btn.setAttribute('aria-label',t==='dark'?'Mudar para o tema claro':'Mudar para o tema escuro');
+    btn.title=t==='dark'?'Tema claro':'Tema escuro';
+  }
+  function metas(t){
+    [].forEach.call(document.querySelectorAll('meta[name="theme-color"]'),function(m,n){
+      if(raiz.getAttribute('data-tema')){m.setAttribute('content',cor(t));m.removeAttribute('media')}
+    });
+  }
+  btn.addEventListener('click',function(){
+    var novo=ativo()==='dark'?'light':'dark';
+    raiz.classList.add('troca-tema');
+    raiz.setAttribute('data-tema',novo);
+    try{localStorage.setItem('tema',novo)}catch(e){}
+    metas(novo);rotular();
+    setTimeout(function(){raiz.classList.remove('troca-tema')},400);
+  });
+  if(escuro&&escuro.addEventListener)escuro.addEventListener('change',rotular);
+  if(raiz.getAttribute('data-tema'))metas(ativo());
+  rotular();
 })();
